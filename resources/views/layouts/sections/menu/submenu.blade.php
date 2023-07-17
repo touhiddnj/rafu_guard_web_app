@@ -1,5 +1,7 @@
 <ul class="menu-sub">
   @if (isset($menu))
+
+  {{-- {{ dd($menu); }} --}}
   @foreach ($menu as $submenu)
 
   {{-- active menu method --}}

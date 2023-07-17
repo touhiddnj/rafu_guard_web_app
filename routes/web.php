@@ -27,7 +27,8 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     // Routes that require authentication
 
     // Main Page Route
-    Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+    // Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
+    Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
     // layout
     Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
     Route::get('/layouts/without-navbar', $controller_path . '\layouts\WithoutNavbar@index')->name('layouts-without-navbar');
@@ -90,14 +91,6 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     // tables
     Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tables-basic');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
