@@ -22,22 +22,31 @@
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
-        @php
-        $sl = 1;
-        @endphp
-        @foreach($customBlockList as $row)
-        <tr>
-          <td>{{ $sl; }}</td>
-          <td>{{ $row->url }}</td>
-          <td>{{ $row->reason }}</td>
-          <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
-          <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
-        </tr>
 
-        @php
-        $sl++;
-        @endphp
-        @endforeach
+        @empty($customBlockList)
+        <tr><td style="text-align: center" colspan="5"><strong>No Data</strong></td></tr>
+
+        @else
+
+          @php
+          $sl = 1;
+          @endphp
+          @foreach($customBlockList as $row)
+              <tr>
+                <td>{{ $sl; }}</td>
+                <td>{{ $row->url }}</td>
+                <td>{{ $row->reason }}</td>
+                <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
+                <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
+              </tr>
+
+              @php
+              $sl++;
+              @endphp
+          @endforeach
+       
+        @endempty
+        
        {{--  <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
           <td>Albert Cook</td>
@@ -146,7 +155,7 @@
             </div>
           </td>
         </tr> --}}
-        <tr><td style="text-align: center" colspan="5"><strong>No Data</strong></td></tr>
+        
       </tbody>
       <tfoot>
         <form id="url-blocking-form" action="/CustomBlockAdd" method="POST">
@@ -205,9 +214,13 @@
       type: 'POST', // or 'GET', depending on your form requirements
       data: $(this).serialize(), // Serialize the form data
       success: function(response) {
+        console.log(response);
         // Handle the successful form submission
         console.log('Form submitted successfully');
         // Additional actions after successful submission
+        if(response.success == true){
+          location.reload();
+        }
       },
       error: function(error) {
         // Handle the form submission error

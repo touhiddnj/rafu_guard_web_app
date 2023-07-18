@@ -30,12 +30,24 @@ class HomeController extends Controller
 
     public function customBlocking()
     {
+
         $customBlockList = CustomUrlBlock::all();
         return view('custom_blocking.index', compact('customBlockList'));
     }
 
-    public function customBlockingAdd()
+    public function customBlockingAdd(Request $request)
     {
-        echo 'Test response';
+        $userId = auth()->id(); // Assuming you're using Laravel's authentication system
+        $request->merge(['user_id' => $userId]);
+
+
+        CustomUrlBlock::create($request->except('_token'));
+
+        $data = [
+            'message' => 'Successfully added',
+            'success' => true,
+        ];
+
+        return response()->json($data);
     }
 }
