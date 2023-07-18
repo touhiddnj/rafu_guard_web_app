@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CustomUrlBlock;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,6 +30,12 @@ class HomeController extends Controller
 
     public function customBlocking()
     {
-        return view('custom_blocking.index');
+        $customBlockList = CustomUrlBlock::all();
+        return view('custom_blocking.index', compact('customBlockList'));
+    }
+
+    public function customBlockingAdd()
+    {
+        echo 'Test response';
     }
 }

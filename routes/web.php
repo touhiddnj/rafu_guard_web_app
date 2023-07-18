@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
 
     Route::get('CustomBlocking', $controller_path . '\HomeController@CustomBlocking')->name('custom-blocking');
+    Route::post('url-blocking-add', $controller_path . '\HomeController@CustomBlockingAdd')->name('custom-blocking-add');
+
+
     // layout
     Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
     Route::get('/layouts/without-navbar', $controller_path . '\layouts\WithoutNavbar@index')->name('layouts-without-navbar');

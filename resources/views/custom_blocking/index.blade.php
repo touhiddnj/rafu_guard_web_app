@@ -22,6 +22,18 @@
         </tr>
       </thead>
       <tbody class="table-border-bottom-0">
+        @php
+        $sl = 1;
+        @endphp
+        @foreach($customBlockList as $row)
+        <tr>
+          <td></td>
+        </tr>
+
+        @php
+        $sl++;
+        @endphp
+        @endforeach
        {{--  <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
           <td>Albert Cook</td>
@@ -130,9 +142,33 @@
             </div>
           </td>
         </tr> --}}
+        <tr><td style="text-align: center" colspan="5"><strong>No Data</strong></td></tr>
       </tbody>
       <tfoot>
+        <form id="url-blocking-form" action="/CustomBlockAdd" method="POST">
+          @csrf
+        <tr>
+          <td>#</td>
+          <td>
+           
+            <input id="url" class="form-control form-control-sm" type="text" name="url" placeholder="Enter URL">
 
+          </td>
+          <td>
+            <input id="reason" class="form-control form-control-sm" type="text" name="reason" placeholder="Enter Reason">
+          </td>
+          <td>
+            <select id="statusSelect" class="form-select form-select-sm" name="status">
+              <option value="">Select status</option>
+              <option value="1" selected="selected">Enabled</option>
+              <option value="0">Disabled</option>
+              </select>
+          </td>
+          <td>
+            <button id="addBtn" type="button" class="btn btn-sm btn-primary">Add URL</button>
+          </td>
+        </tr>
+      </form>
       </tfoot>
     </table>
   </div>
@@ -142,4 +178,41 @@
 <hr class="my-5">
 
 
+@endsection
+
+@section('customScript')
+<script>
+  $(document).ready(function(){
+    $('#addBtn').click(function(){
+      console.log('add button clicked');
+      $('#url-blocking-form').submit();
+    });
+
+    //url-blocking-form
+
+    $('#url-blocking-form').submit(function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Perform any additional validations or actions before submission
+
+    // Submit the form using AJAX
+    $.ajax({
+      url: '/url-blocking-add', // Replace with your actual submit URL
+      type: 'POST', // or 'GET', depending on your form requirements
+      data: $(this).serialize(), // Serialize the form data
+      success: function(response) {
+        // Handle the successful form submission
+        console.log('Form submitted successfully');
+        // Additional actions after successful submission
+      },
+      error: function(error) {
+        // Handle the form submission error
+        console.error('Form submission error:', error);
+        // Additional error handling if needed
+      }
+    });
+  });
+
+  });
+</script>
 @endsection
