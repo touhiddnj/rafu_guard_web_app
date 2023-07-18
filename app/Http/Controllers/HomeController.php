@@ -61,6 +61,6 @@ class HomeController extends Controller
 
     public function extensionIndex()
     {
-        return view('exten', compact('customBlockList'));
+        return view('extension.extension_index');
     }
 }
