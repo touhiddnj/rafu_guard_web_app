@@ -27,7 +27,11 @@
         @endphp
         @foreach($customBlockList as $row)
         <tr>
-          <td></td>
+          <td>{{ $sl; }}</td>
+          <td>{{ $row->url }}</td>
+          <td>{{ $row->reason }}</td>
+          <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
+          <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
         </tr>
 
         @php
