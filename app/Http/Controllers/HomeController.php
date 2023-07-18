@@ -50,4 +50,12 @@ class HomeController extends Controller
 
         return response()->json($data);
     }
+
+    public function customBlockingRemove($id)
+    {
+        $block = CustomUrlBlock::find($id);
+        $block->delete();
+
+        return redirect()->route('custom-blocking')->with('success', 'URL removed successfully.');
+    }
 }
