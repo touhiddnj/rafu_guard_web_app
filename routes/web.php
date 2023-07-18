@@ -34,6 +34,9 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::post('url-blocking-add', $controller_path . '\HomeController@CustomBlockingAdd')->name('custom-blocking-add');
     Route::get('custom-blocking/delete/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-remove');
 
+    Route::get('Extensions', $controller_path . '\HomeController@extensionIndex')->name('extension-index');
+
+
 
     // layout
     Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');

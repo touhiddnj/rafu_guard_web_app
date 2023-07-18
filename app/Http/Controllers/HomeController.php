@@ -58,4 +58,9 @@ class HomeController extends Controller
 
         return redirect()->route('custom-blocking')->with('success', 'URL removed successfully.');
     }
+
+    public function extensionIndex()
+    {
+        return view('exten', compact('customBlockList'));
+    }
 }
