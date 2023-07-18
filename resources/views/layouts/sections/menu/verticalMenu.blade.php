@@ -6,7 +6,7 @@
       <span class="app-brand-logo demo">
         @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
       </span>
-      <span class="app-brand-text demo menu-text fw-bold ms-2">{{config('variables.templateName')}}</span>
+      <span class="app-brand-text demo menu-text fw-bold ms-2">Rafu Guard</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-autod-block d-xl-none">

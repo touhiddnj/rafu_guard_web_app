@@ -30,9 +30,7 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     // Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
     Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
 
-    Route::get('CustomBlocking', function () {
-        dd('Works');
-    });
+    Route::get('CustomBlocking', $controller_path . '\HomeController@CustomBlocking')->name('custom-blocking');
     // layout
     Route::get('/layouts/without-menu', $controller_path . '\layouts\WithoutMenu@index')->name('layouts-without-menu');
     Route::get('/layouts/without-navbar', $controller_path . '\layouts\WithoutNavbar@index')->name('layouts-without-navbar');

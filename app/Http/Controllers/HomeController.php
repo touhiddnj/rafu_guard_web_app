@@ -26,4 +26,9 @@ class HomeController extends Controller
         // return view('home');
         return view('content.dashboard.dashboards-analytics');
     }
+
+    public function customBlocking()
+    {
+        return view('custom_blocking.index');
+    }
 }
