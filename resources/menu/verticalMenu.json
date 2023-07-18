@@ -7,34 +7,41 @@
       "slug": "dashboard-analytics"
     },
     {
-      "url": "/",
+      "url": "/Browsing",
       "name": "Browsing",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "icon": "menu-icon tf-icons bx bx-globe",
+      "slug": "browsing"
     },
     {
-      "url": "/",
+      "url": "/CustomBlocking",
+      "name": "Custom Blocking",
+      "icon": "menu-icon tf-icons bx bx-block",
+      "slug": "custom-blocking"
+    },
+
+    {
+      "url": "/Extensions",
       "name": "Extensions",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "icon": "menu-icon tf-icons bx bx-extension",
+      "slug": "extensions"
     },
     {
-      "url": "/",
+      "url": "/Notifications",
       "name": "Notifications",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "icon": "menu-icon tf-icons bx bx-bell",
+      "slug": "notifications"
     },
     {
-      "url": "/",
+      "url": "/Identity",
       "name": "Identity",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "icon": "menu-icon tf-icons bx bx-user-check",
+      "slug": "identity"
     },
     {
-      "url": "/",
+      "url": "/Hijackers",
       "name": "Hijackers",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "dashboard-analytics"
+      "icon": "menu-icon tf-icons bx bx-dizzy",
+      "slug": "hijackers"
     },
     {
       "name": "Layouts",
