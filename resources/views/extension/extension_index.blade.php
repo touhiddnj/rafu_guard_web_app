@@ -390,7 +390,7 @@
 
   </style>
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Dashboard/</span> Custom Blocking
+  <span class="text-muted fw-light">Dashboard/</span> Extensions
 </h4>
 
 <!-- Basic Bootstrap Table -->
@@ -398,7 +398,7 @@
   <h5 class="card-header">Safeguarding Against Malicious Browser Extensions</h5>
   <div class="card-body">
     <div class="row" id="extension-list">
-      <div class="col-md-4">
+{{--       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
           <h5 class="card-title ext-title">Volume Booster</h5>
@@ -412,7 +412,7 @@
           <a href="javascript:void(0)" class="card-danger text-danger ext-remove">Remove</a>
           </div>
           </div>
-      </div>
+      </div> --}}
     </div>
   </div>
  
