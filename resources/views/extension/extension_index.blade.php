@@ -429,16 +429,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script>
    $(document).ready(function() {
-      $('.btn-toggle').click(function(event) {
-        event.preventDefault(); // Prevent default toggle behavior
-        if ($(this).hasClass('active')) {
-          // Code to execute when button is toggled ON
-          console.log('Button is ON');
-        } else {
-          // Code to execute when button is toggled OFF
-          console.log('Button is OFF');
-        }
-      });
+
     });
 
 

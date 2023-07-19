@@ -6,7 +6,7 @@
 	  {{ date("Y") }}
 
 
-      , made with ❤️ by <a href="https://rafusoft.com" target="_blank" class="footer-link fw-bolder">Rafusot</a>
+      , made with ❤️ by <a href="https://rafusoft.com" target="_blank" class="footer-link fw-bolder">Rafusoft</a>
     </div>
     <div>
       <a href="{{ config('variables.licenseUrl') ? config('variables.licenseUrl') : '#' }}" class="footer-link me-4" target="_blank">License</a>

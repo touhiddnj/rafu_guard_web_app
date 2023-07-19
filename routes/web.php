@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,3 +105,24 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('ext-test', function () {
+    // Set the item ID and access token
+    $itemId = 'dpajfcckdohlcidmbjledcaenfkjaddo';
+    $accessToken = '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';
+
+    // Send the HTTP GET request
+    $response = Http::withToken($accessToken)
+        ->get("https://www.googleapis.com/chromewebstore/v1.1/items/$itemId");
+
+    // Check for errors
+    if ($response->failed()) {
+        echo 'Error: ' . $response->body();
+    } else {
+        // Get the JSON response
+        $data = $response->json();
+
+        // Print the item information
+        print_r($data);
+    }
+});
