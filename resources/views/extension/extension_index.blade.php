@@ -15,8 +15,8 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <div class="card-subtitle text-muted mb-3">Card subtitle</div>
+          <h5 class="card-title">Volume Booster</h5>
+          <div class="card-subtitle text-muted mb-3">Volume Booster</div>
           <p class="card-text">
           Some quick example text to build on the card title and make up the bulk of the card's content.
           </p>
