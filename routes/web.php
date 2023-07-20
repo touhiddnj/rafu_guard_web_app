@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -125,4 +126,13 @@ Route::get('ext-test', function () {
         // Print the item information
         print_r($data);
     }
+});
+Route::get('token-test', function () {
+    $token = '6|Z4bGZLnCgCnoRnWwLLtLpk0j8nTas9UVcWRcwbbW';
+    $user = User::whereHas('tokens', function ($query) use ($token) {
+        $query->where('tokenable_type', User::class)
+            ->where('token', hash('sha256', $token))
+            ->where('abilities', 'like', '%:api-token:%');
+    })->first();
+    dd($user);
 });

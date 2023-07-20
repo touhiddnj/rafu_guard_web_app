@@ -1,7 +1,14 @@
 @php
 use Illuminate\Support\Facades\Auth;
-$user = Auth::user();
-$token = $user->createToken('"api-token')->plainTextToken;
+// $user = Auth::user();
+// $token = $user->createToken('"api-token')->plainTextToken;
+// Check if the user has a valid API token
+if (Auth::user()->token() && !Auth::user()->token()->expired()) {
+    $token = Auth::user()->token();
+} else {
+    // Generate a new token for the user
+    $token = Auth::user()->createToken('API Token')->plainTextToken;
+}
 @endphp
 <!-- Footer-->
 <footer class="content-footer footer bg-footer-theme">
