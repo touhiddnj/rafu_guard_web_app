@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 // $token = $user->createToken('"api-token')->plainTextToken;
 // Check if the user has a valid API token
 // Check if the user has a valid API token
-var_dump(Auth::user()); exit();
+// var_dump(Auth::user()); exit();
 if (Auth::user()->currentAccessToken() && !Auth::user()->currentAccessToken()->expired()) {
     $token = Auth::user()->currentAccessToken();
 } else {
