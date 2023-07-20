@@ -1,6 +1,6 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Custom Blocking')
+@section('title', 'Extensions')
 
 @section('content')
 <style>
