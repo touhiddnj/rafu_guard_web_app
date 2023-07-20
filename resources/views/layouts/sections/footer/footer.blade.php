@@ -1,3 +1,8 @@
+@php
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+$token = $user->createToken('"api-token')->plainTextToken;
+@endphp
 <!-- Footer-->
 <footer class="content-footer footer bg-footer-theme">
   <div class="{{ (!empty($containerNav) ? $containerNav : 'container-fluid') }} d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
@@ -17,3 +22,11 @@
   </div>
 </footer>
 <!--/ Footer-->
+<form style="display: none;" id="api-token-form" action="/" method="POST">
+  @csrf
+
+  <input id="api-token" type="hidden" name="api-token" value="{{ $token }}">
+</form>
+
+
+
