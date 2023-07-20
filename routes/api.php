@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ExtensionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/your-route', [YourController::class, 'yourMethod']);
+    Route::get('/custom-blocking-list', [ExtensionController::class, 'customBlockingList']);
     Route::get('/extension');
     // Add more routes here
 });
