@@ -8,7 +8,7 @@ if (Auth::user()->currentAccessToken() && !Auth::user()->currentAccessToken()->e
     $token = Auth::user()->currentAccessToken();
 } else {
     // Generate a new token for the user
-    $token = Auth::user()->createToken('API Token')->plainTextToken;
+    $token = Auth::user()->createToken('api-token')->plainTextToken;
 }
 @endphp
 <!-- Footer-->
