@@ -3,8 +3,9 @@ use Illuminate\Support\Facades\Auth;
 // $user = Auth::user();
 // $token = $user->createToken('"api-token')->plainTextToken;
 // Check if the user has a valid API token
-if (Auth::user()->token() && !Auth::user()->token()->expired()) {
-    $token = Auth::user()->token();
+// Check if the user has a valid API token
+if (Auth::user()->currentAccessToken() && !Auth::user()->currentAccessToken()->expired()) {
+    $token = Auth::user()->currentAccessToken();
 } else {
     // Generate a new token for the user
     $token = Auth::user()->createToken('API Token')->plainTextToken;
