@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::get('custom-blocking/delete/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-remove');
 
     Route::get('Extensions', $controller_path . '\HomeController@extensionIndex')->name('extension-index');
+    Route::get('Browsing', $controller_path . '\HomeController@browsingIndex')->name('browsing-index');
 
 
 

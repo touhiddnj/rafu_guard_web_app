@@ -63,4 +63,9 @@ class HomeController extends Controller
     {
         return view('extension.extension_index');
     }
+
+    public function browsingIndex()
+    {
+        return view('browsing.browsing_index');
+    }
 }
