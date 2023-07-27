@@ -415,7 +415,7 @@
           </div>
       </div> --}}
 	  <div class="col-md-4">Phishing site blocking:</div>
-	  <div class="col-md-4"><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable" data-toggle="button" aria-pressed="false" autocomplete="off">
+	  <div class="col-md-4"><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable active" data-toggle="button" aria-pressed="false" autocomplete="off">
 		<div class="handle"></div>
 	  </button></div>
     </div>
