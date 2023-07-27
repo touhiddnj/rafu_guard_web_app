@@ -397,9 +397,7 @@
 <div class="card">
   <h5 class="card-header">Browsing Setting</h5>
   <div class="card-body">
-	<button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable" data-toggle="button" aria-pressed="false" autocomplete="off">
-		<div class="handle"></div>
-	  </button>
+	
     <div class="row">
 {{--       <div class="col-md-4">
         <div class="card mb-4">
@@ -416,6 +414,10 @@
           </div>
           </div>
       </div> --}}
+	  <div class="col-md-4">Phishing site blocking:</div>
+	  <div class="col-md-4"><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable" data-toggle="button" aria-pressed="false" autocomplete="off">
+		<div class="handle"></div>
+	  </button></div>
     </div>
   </div>
  
