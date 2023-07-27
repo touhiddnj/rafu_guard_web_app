@@ -390,13 +390,16 @@
 
   </style>
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Dashboard/</span> Extensions
+  <span class="text-muted fw-light">Dashboard/</span> Browsing
 </h4>
 
 <!-- Basic Bootstrap Table -->
 <div class="card">
-  <h5 class="card-header">Safeguarding Against Malicious Browser Extensions</h5>
+  <h5 class="card-header">Browsing Setting</h5>
   <div class="card-body">
+	<button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable" data-toggle="button" aria-pressed="false" autocomplete="off">
+		<div class="handle"></div>
+	  </button>
     <div class="row">
 {{--       <div class="col-md-4">
         <div class="card mb-4">
