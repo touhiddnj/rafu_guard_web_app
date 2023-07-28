@@ -16,6 +16,7 @@
         <tr>
           <th>#</th>
           <th>URL</th>
+          <th>Domain</th>
           <th>Reason</th>
           <th>Status</th>
           <th>Actions</th>
@@ -35,6 +36,7 @@
               <tr>
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
+                <td></td>
                 <td>{{ $row->reason }}</td>
                 <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
                 <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
@@ -166,6 +168,14 @@
            
             <input id="url" class="form-control form-control-sm" type="text" name="url" placeholder="Enter URL">
 
+          </td>
+          <td>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input form-check-input-sm" type="checkbox" value="" id="domainCheckbox" name="domain">
+              <label class="form-check-label" for="domainCheckbox">
+                Check me
+              </label>
+            </div>
           </td>
           <td>
             <input id="reason" class="form-control form-control-sm" type="text" name="reason" placeholder="Enter Reason">
