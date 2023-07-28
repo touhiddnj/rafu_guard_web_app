@@ -20,4 +20,15 @@ class ExtensionController extends Controller
 
         return Response::json($list);
     }
+
+    public function customBlockingDomainList(Request $request)
+    {
+        $userId = $request->user()->id;
+
+        $list = CustomUrlBlock::where('user_id', $userId)->where('domain', '=', 'true')->pluck('url')->toArray();
+
+        // dd($list);
+
+        return Response::json($list);
+    }
 }
