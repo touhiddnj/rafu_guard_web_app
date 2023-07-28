@@ -36,7 +36,7 @@
               <tr>
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
-                <td></td>
+                <td>{{ $row->domain }}</td>
                 <td>{{ $row->reason }}</td>
                 <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
                 <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
