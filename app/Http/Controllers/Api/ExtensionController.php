@@ -14,7 +14,7 @@ class ExtensionController extends Controller
     {
         $userId = $request->user()->id;
 
-        $list = CustomUrlBlock::where('user_id', $userId)->whereNotNull('domain')->pluck('url')->toArray();
+        $list = CustomUrlBlock::where('user_id', $userId)->whereNull('domain')->pluck('url')->toArray();
 
         // dd($list);
 
