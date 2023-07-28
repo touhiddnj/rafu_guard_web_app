@@ -376,11 +376,15 @@
               <tr>
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
-                <td>{{ $row->domain }}<button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <td><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
                   <div class="handle"></div>
                   </button></td>
                 <td>{{ $row->reason }}</td>
-                <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->status == 1 ? ' active': '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    <div class="handle"></div>
+                    </button>
+                 </td>
                 <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
               </tr>
 
