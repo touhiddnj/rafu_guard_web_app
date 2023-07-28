@@ -36,7 +36,9 @@
               <tr>
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
-                <td>{{ $row->domain }}</td>
+                <td>{{ $row->domain }}<button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  <div class="handle"></div>
+                  </button></td>
                 <td>{{ $row->reason }}</td>
                 <td>{{ $row->status == 1 ? 'Enabled': 'Disabled' }}</td>
                 <td><a class="btn btn-danger btn-sm" href="/custom-blocking/delete/{{ $row->id }}">Remove</a></td>
@@ -181,6 +183,7 @@
             <input id="reason" class="form-control form-control-sm" type="text" name="reason" placeholder="Enter Reason">
           </td>
           <td>
+            
             <select id="statusSelect" class="form-select form-select-sm" name="status">
               <option value="">Select status</option>
               <option value="1" selected="selected">Enabled</option>
