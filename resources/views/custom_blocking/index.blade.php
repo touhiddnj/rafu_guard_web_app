@@ -695,6 +695,53 @@
     });
   }
 
+      // Function to perform the AJAX GET request
+      function enableStatus(id) {
+    // Endpoint URL
+    var url = "/custom-blocking/enable-status/" + id;
+
+    // Perform the AJAX GET request
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json", // Change the data type based on your server's response
+      success: function(data) {
+        // This function will be executed if the request succeeds
+        console.log("Custom blocking enabled successfully.");
+        console.log(data); // Assuming the server returns some data in JSON format
+      },
+      error: function(xhr, status, error) {
+        // This function will be executed if there's an error with the request
+        console.error("Error enabling domain:", status, error);
+      }
+    });
+  }
+
+        // Function to perform the AJAX GET request
+        function disableStatus(id) {
+    // Endpoint URL
+    var url = "/custom-blocking/disable-status/" + id;
+
+    // Perform the AJAX GET request
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json", // Change the data type based on your server's response
+      success: function(data) {
+        // This function will be executed if the request succeeds
+        console.log("Custom blocking disabled successfully.");
+        console.log(data); // Assuming the server returns some data in JSON format
+      },
+      error: function(xhr, status, error) {
+        // This function will be executed if there's an error with the request
+        console.error("Error enabling domain:", status, error);
+      }
+    });
+  }
+
+
+
+
 
 </script>
 @endsection
