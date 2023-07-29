@@ -373,7 +373,7 @@
           $sl = 1;
           @endphp
           @foreach($customBlockList as $row)
-              <tr>
+              <tr data-id="{{ $row->id }}">
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
                 <td><button type="button" class="btn btn-sm btn-secondary btn-toggle domain-toggle{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
@@ -595,7 +595,8 @@
 
    // Add a click event listener to the button
    $('.domain-toggle').on('click', function() {
-    let id = $(this).closest('tr').find('td:first-child').text();
+    // let id = $(this).closest('tr').find('td:first-child').text();
+    let id = $(this).closest('tr').data('id');
     // Toggle the 'aria-pressed' attribute on the button
     $(this).attr('aria-pressed', function(index, value) {
       // Convert the current 'aria-pressed' value to a boolean
