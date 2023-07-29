@@ -39,11 +39,11 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::get('Extensions', $controller_path . '\HomeController@extensionIndex')->name('extension-index');
     Route::get('Browsing', $controller_path . '\HomeController@browsingIndex')->name('browsing-index');
 
-    Route::get('custom-blocking/enable-status/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-enable');
-    Route::get('custom-blocking/disable-status/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-disable');
+    Route::get('custom-blocking/enable-status/{id}', $controller_path . '\HomeController@enableStatus')->name('custom-blocking-enable');
+    Route::get('custom-blocking/disable-status/{id}', $controller_path . '\HomeController@disableStatus')->name('custom-blocking-disable');
 
-    Route::get('custom-blocking/domain-enable/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-domain-enable');
-    Route::get('custom-blocking/domain-disable/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-domain-disable');
+    Route::get('custom-blocking/domain-enable/{id}', $controller_path . '\HomeController@enableDomain')->name('custom-blocking-domain-enable');
+    Route::get('custom-blocking/domain-disable/{id}', $controller_path . '\HomeController@disableDomain')->name('custom-blocking-domain-disable');
 
 
     // layout
