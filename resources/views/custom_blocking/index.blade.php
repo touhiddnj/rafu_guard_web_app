@@ -376,12 +376,12 @@
               <tr data-id="{{ $row->id }}">
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
-                <td><button type="button" class="btn btn-sm btn-secondary btn-toggle domain-toggle{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <td><button type="button" class="btn btn-sm btn-secondary btn-toggle domain-toggle{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="{{ $row->domain == true ? 'true' : 'false' }}" autocomplete="off">
                   <div class="handle"></div>
                   </button></td>
                 <td>{{ $row->reason }}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-secondary btn-toggle status-toggle{{ $row->status == 1 ? ' active': '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  <button type="button" class="btn btn-sm btn-secondary btn-toggle status-toggle{{ $row->status == 1 ? ' active': '' }}" data-toggle="button" aria-pressed="{{ $row->status == 1 ? 'true': 'false' }}" autocomplete="off">
                     <div class="handle"></div>
                     </button>
                  </td>
