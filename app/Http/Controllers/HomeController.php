@@ -117,11 +117,39 @@ class HomeController extends Controller
         /*         $info = CustomUrlBlock::find($id);
         dd($info); */
         $update =  CustomUrlBlock::where('id', $id)->update(['status' => 1]);
-        dd($update);
+        if ($update) {
+            $data = [
+                'message' => 'Successfully enabled',
+                'success' => true,
+            ];
+
+            return response()->json($data);
+        } else {
+            $data = [
+                'message' => 'Write to database failed',
+                'success' => false,
+            ];
+
+            return response()->json($data);
+        }
     }
     public function disableStatus($id)
     {
         $update =  CustomUrlBlock::where('id', $id)->update(['status' => 0]);
-        dd($update);
+        if ($update) {
+            $data = [
+                'message' => 'Successfully disabled',
+                'success' => true,
+            ];
+
+            return response()->json($data);
+        } else {
+            $data = [
+                'message' => 'Write to database failed',
+                'success' => false,
+            ];
+
+            return response()->json($data);
+        }
     }
 }
