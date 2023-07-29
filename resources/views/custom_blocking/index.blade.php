@@ -623,6 +623,7 @@
 
      // Add a click event listener to the button
      $('.status-toggle').on('click', function() {
+      let id = $(this).closest('tr').data('id');
     // Toggle the 'aria-pressed' attribute on the button
     $(this).attr('aria-pressed', function(index, value) {
       // Convert the current 'aria-pressed' value to a boolean
