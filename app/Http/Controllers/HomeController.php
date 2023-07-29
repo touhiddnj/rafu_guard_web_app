@@ -75,7 +75,7 @@ class HomeController extends Controller
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => 'true']);
         if ($update) {
             $data = [
-                'message' => 'Successfully changed',
+                'message' => 'Domain enabled successfully',
                 'success' => true,
             ];
 
@@ -97,7 +97,7 @@ class HomeController extends Controller
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => null]);
         if ($update) {
             $data = [
-                'message' => 'Successfully changed',
+                'message' => 'Successfully disabled successfully',
                 'success' => true,
             ];
 
