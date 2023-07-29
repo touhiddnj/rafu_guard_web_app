@@ -73,15 +73,43 @@ class HomeController extends Controller
         /*         $info = CustomUrlBlock::find($id);
         dd($info); */
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => 'true']);
-        dd($update);
+        if ($update) {
+            $data = [
+                'message' => 'Successfully changed',
+                'success' => true,
+            ];
+
+            return response()->json($data);
+        } else {
+            $data = [
+                'message' => 'Write to database failed',
+                'success' => false,
+            ];
+
+            return response()->json($data);
+        }
     }
     public function disableDomain($id)
     {
         /*         $info = CustomUrlBlock::find($id);
         dd($info); */
-        dd($id);
+        // dd($id);
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => null]);
-        dd($update);
+        if ($update) {
+            $data = [
+                'message' => 'Successfully changed',
+                'success' => true,
+            ];
+
+            return response()->json($data);
+        } else {
+            $data = [
+                'message' => 'Write to database failed',
+                'success' => false,
+            ];
+
+            return response()->json($data);
+        }
     }
 
     public function enableStatus($id)
