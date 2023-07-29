@@ -76,6 +76,8 @@ class HomeController extends Controller
     }
     public function disableDomain($id)
     {
+        $info = CustomUrlBlock::find($id);
+        dd($info);
         dd($id);
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => null]);
         dd($update);
@@ -83,6 +85,8 @@ class HomeController extends Controller
 
     public function enableStatus($id)
     {
+        $info = CustomUrlBlock::find($id);
+        dd($info);
         $update =  CustomUrlBlock::where('id', $id)->update(['status' => 1]);
         dd($update);
     }
