@@ -631,9 +631,11 @@
       if (newPressedValue) {
         console.log('Button is now enabled');
         // Add your custom logic for enabling the feature here
+        enableDomain($(this).closest('tr td:first-child').text());
       } else {
         console.log('Button is now disabled');
         // Add your custom logic for disabling the feature here
+        disableDomain($(this).closest('tr td:first-child').text());
       }
 
       // Return the new 'aria-pressed' attribute value (as a string)
@@ -642,5 +644,53 @@
   });
 
   });
+
+
+  // Function to perform the AJAX GET request
+  function enableDomain(id) {
+    // Endpoint URL
+    var url = "/custom-blocking/domain-enable/" + id;
+
+    // Perform the AJAX GET request
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json", // Change the data type based on your server's response
+      success: function(data) {
+        // This function will be executed if the request succeeds
+        console.log("Domain enabled successfully.");
+        console.log(data); // Assuming the server returns some data in JSON format
+      },
+      error: function(xhr, status, error) {
+        // This function will be executed if there's an error with the request
+        console.error("Error enabling domain:", status, error);
+      }
+    });
+  }
+
+
+    // Function to perform the AJAX GET request
+    function disableDomain(id) {
+    // Endpoint URL
+    var url = "/custom-blocking/domain-disable/" + id;
+
+    // Perform the AJAX GET request
+    $.ajax({
+      type: "GET",
+      url: url,
+      dataType: "json", // Change the data type based on your server's response
+      success: function(data) {
+        // This function will be executed if the request succeeds
+        console.log("Domain disabled successfully.");
+        console.log(data); // Assuming the server returns some data in JSON format
+      },
+      error: function(xhr, status, error) {
+        // This function will be executed if there's an error with the request
+        console.error("Error enabling domain:", status, error);
+      }
+    });
+  }
+
+
 </script>
 @endsection

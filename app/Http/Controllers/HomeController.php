@@ -68,4 +68,21 @@ class HomeController extends Controller
     {
         return view('browsing.browsing_index');
     }
+    public function enableDomain($id)
+    {
+        CustomUrlBlock::where('id', $id)->update('domain', 'true');
+    }
+    public function disableDomain($id)
+    {
+        CustomUrlBlock::where('id', $id)->update('domain', null);
+    }
+
+    public function enableStatus($id)
+    {
+        CustomUrlBlock::where('id', $id)->update('status', 1);
+    }
+    public function disableStatus($id)
+    {
+        CustomUrlBlock::where('id', $id)->update('status', 0);
+    }
 }
