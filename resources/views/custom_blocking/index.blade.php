@@ -606,9 +606,11 @@
       // Perform any action you want based on the button state
       if (newPressedValue) {
         console.log('Button is now enabled');
+        enableDomain($(this).closest('tr td:first-child').text());
         // Add your custom logic for enabling the feature here
       } else {
         console.log('Button is now disabled');
+        disableDomain($(this).closest('tr td:first-child').text());
         // Add your custom logic for disabling the feature here
       }
 
@@ -631,11 +633,11 @@
       if (newPressedValue) {
         console.log('Button is now enabled');
         // Add your custom logic for enabling the feature here
-        enableDomain($(this).closest('tr td:first-child').text());
+       
       } else {
         console.log('Button is now disabled');
         // Add your custom logic for disabling the feature here
-        disableDomain($(this).closest('tr td:first-child').text());
+
       }
 
       // Return the new 'aria-pressed' attribute value (as a string)
