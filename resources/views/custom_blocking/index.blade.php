@@ -633,11 +633,13 @@
 
       // Perform any action you want based on the button state
       if (newPressedValue) {
+        enableStatus(id);
         console.log('Button is now enabled');
         // Add your custom logic for enabling the feature here
        
       } else {
         console.log('Button is now disabled');
+        disableStatus(id);
         // Add your custom logic for disabling the feature here
 
       }
