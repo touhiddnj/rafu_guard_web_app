@@ -70,19 +70,23 @@ class HomeController extends Controller
     }
     public function enableDomain($id)
     {
-        CustomUrlBlock::where('id', $id)->update(['domain' => 'true']);
+        $update =  CustomUrlBlock::where('id', $id)->update(['domain' => 'true']);
+        dd($update);
     }
     public function disableDomain($id)
     {
-        CustomUrlBlock::where('id', $id)->update(['domain' => null]);
+        $update =  CustomUrlBlock::where('id', $id)->update(['domain' => null]);
+        dd($update);
     }
 
     public function enableStatus($id)
     {
-        CustomUrlBlock::where('id', $id)->update(['status' => 1]);
+        $update =  CustomUrlBlock::where('id', $id)->update(['status' => 1]);
+        dd($update);
     }
     public function disableStatus($id)
     {
-        CustomUrlBlock::where('id', $id)->update(['status' => 0]);
+        $update =  CustomUrlBlock::where('id', $id)->update(['status' => 0]);
+        dd($update);
     }
 }
