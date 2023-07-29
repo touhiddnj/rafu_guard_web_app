@@ -595,6 +595,7 @@
 
    // Add a click event listener to the button
    $('.domain-toggle').on('click', function() {
+    let id = $(this).closest('tr').find('td:first-child').text();
     // Toggle the 'aria-pressed' attribute on the button
     $(this).attr('aria-pressed', function(index, value) {
       // Convert the current 'aria-pressed' value to a boolean
@@ -606,11 +607,11 @@
       // Perform any action you want based on the button state
       if (newPressedValue) {
         console.log('Button is now enabled');
-        enableDomain($(this).closest('tr td:first-child').text());
+        enableDomain(id);
         // Add your custom logic for enabling the feature here
       } else {
         console.log('Button is now disabled');
-        disableDomain($(this).closest('tr td:first-child').text());
+        disableDomain(id);
         // Add your custom logic for disabling the feature here
       }
 
