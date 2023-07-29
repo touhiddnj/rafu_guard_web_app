@@ -70,7 +70,8 @@ class HomeController extends Controller
     }
     public function enableDomain($id)
     {
-        dd($id);
+        $info = CustomUrlBlock::find($id);
+        dd($info);
         $update =  CustomUrlBlock::where('id', $id)->update(['domain' => 'true']);
         dd($update);
     }
