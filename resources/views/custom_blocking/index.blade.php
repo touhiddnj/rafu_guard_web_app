@@ -593,6 +593,30 @@
     });
   });
 
+   // Add a click event listener to the button
+   $('.btn-toggle').on('click', function() {
+    // Toggle the 'aria-pressed' attribute on the button
+    $(this).attr('aria-pressed', function(index, value) {
+      // Convert the current 'aria-pressed' value to a boolean
+      const isPressed = value === 'true';
+
+      // Toggle the boolean value
+      const newPressedValue = !isPressed;
+
+      // Perform any action you want based on the button state
+      if (newPressedValue) {
+        console.log('Button is now enabled');
+        // Add your custom logic for enabling the feature here
+      } else {
+        console.log('Button is now disabled');
+        // Add your custom logic for disabling the feature here
+      }
+
+      // Return the new 'aria-pressed' attribute value (as a string)
+      return newPressedValue.toString();
+    });
+  });
+
   });
 </script>
 @endsection
