@@ -376,12 +376,12 @@
               <tr>
                 <td>{{ $sl; }}</td>
                 <td>{{ $row->url }}</td>
-                <td><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                <td><button type="button" class="btn btn-sm btn-secondary btn-toggle domain-toggle{{ $row->domain == true ? ' active' : '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
                   <div class="handle"></div>
                   </button></td>
                 <td>{{ $row->reason }}</td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable{{ $row->status == 1 ? ' active': '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
+                  <button type="button" class="btn btn-sm btn-secondary btn-toggle status-toggle{{ $row->status == 1 ? ' active': '' }}" data-toggle="button" aria-pressed="false" autocomplete="off">
                     <div class="handle"></div>
                     </button>
                  </td>
@@ -594,7 +594,31 @@
   });
 
    // Add a click event listener to the button
-   $('.btn-toggle').on('click', function() {
+   $('.domain-toggle').on('click', function() {
+    // Toggle the 'aria-pressed' attribute on the button
+    $(this).attr('aria-pressed', function(index, value) {
+      // Convert the current 'aria-pressed' value to a boolean
+      const isPressed = value === 'true';
+
+      // Toggle the boolean value
+      const newPressedValue = !isPressed;
+
+      // Perform any action you want based on the button state
+      if (newPressedValue) {
+        console.log('Button is now enabled');
+        // Add your custom logic for enabling the feature here
+      } else {
+        console.log('Button is now disabled');
+        // Add your custom logic for disabling the feature here
+      }
+
+      // Return the new 'aria-pressed' attribute value (as a string)
+      return newPressedValue.toString();
+    });
+  });
+
+     // Add a click event listener to the button
+     $('.status-toggle').on('click', function() {
     // Toggle the 'aria-pressed' attribute on the button
     $(this).attr('aria-pressed', function(index, value) {
       // Convert the current 'aria-pressed' value to a boolean
