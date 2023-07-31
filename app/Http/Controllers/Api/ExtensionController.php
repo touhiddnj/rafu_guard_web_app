@@ -41,7 +41,7 @@ class ExtensionController extends Controller
         CustomUrlBlock::create($request->except('_token'));
 
         $data = [
-            'message' => 'Successfully added',
+            'message' => 'URL added to custom block list Successfully',
             'success' => true,
         ];
 
