@@ -31,4 +31,20 @@ class ExtensionController extends Controller
 
         return Response::json($list);
     }
+
+    public function customBlockingAdd(Request $request)
+    {
+        $userId = auth()->id(); // Assuming you're using Laravel's authentication system
+        $request->merge(['user_id' => $userId]);
+
+
+        CustomUrlBlock::create($request->except('_token'));
+
+        $data = [
+            'message' => 'Successfully added',
+            'success' => true,
+        ];
+
+        return response()->json($data);
+    }
 }
