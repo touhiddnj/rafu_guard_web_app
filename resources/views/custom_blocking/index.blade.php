@@ -518,7 +518,7 @@
           <td>
             <div class="form-check form-check-inline">
               <input class="form-check-input form-check-input-sm" type="checkbox" value="true" id="domainCheckbox" name="domain">
-              <label class="form-check-label" for="domainCheckbox">
+              <label class="form-check-label fw-bold" for="domainCheckbox">
                 Yes
               </label>
             </div>
