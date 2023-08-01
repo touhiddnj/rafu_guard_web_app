@@ -358,7 +358,7 @@
           <th>URL</th>
           <th>Domain</th>
           <th>Reason</th>
-          <th>Status</th>
+          <th>Active</th>
           <th>Actions</th>
         </tr>
       </thead>
