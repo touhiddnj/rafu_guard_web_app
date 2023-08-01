@@ -7,6 +7,12 @@
       "slug": "dashboard-analytics"
     },
     {
+      "url": "/",
+      "name": "Browsing",
+      "icon": "menu-icon tf-icons bx bx-globe",
+      "slug": "dashboard-analytics"
+    },
+    {
       "url": "/Browsing",
       "name": "Browsing",
       "icon": "menu-icon tf-icons bx bx-globe",
