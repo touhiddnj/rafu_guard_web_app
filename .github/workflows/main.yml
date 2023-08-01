@@ -1,16 +1,1 @@
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: centos7
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: secrets.RS_FTP_HOST
-        username: secrets.RAFU_GUARD_FTP_USER
-        password: ${{ secrets.RAFU_GUARD_FTP_PASS }}
+
