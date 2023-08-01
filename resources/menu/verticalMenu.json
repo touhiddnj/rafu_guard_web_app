@@ -8,8 +8,8 @@
     },
     {
       "url": "/",
-      "name": "Browsing",
-      "icon": "menu-icon tf-icons bx bx-globe",
+      "name": "Overview",
+      "icon": "menu-icon tf-icons bx bx-extension",
       "slug": "dashboard-analytics"
     },
     {
