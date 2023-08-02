@@ -23,7 +23,7 @@ $navbarDetached = ($navbarDetached ?? '');
         <a href="{{url('/')}}" class="app-brand-link gap-2">
           <span class="app-brand-logo demo">
             <img src="/icons/icon.png">
-            @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
+            {{-- @include('_partials.macros',["width"=>25,"withbg"=>'#696cff']) --}}
           </span>
           <span class="app-brand-text demo menu-text fw-bolder">Rafu Guard</span>
         </a>
