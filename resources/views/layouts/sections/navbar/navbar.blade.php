@@ -20,7 +20,7 @@ $navbarDetached = ($navbarDetached ?? '');
           <span class="app-brand-logo demo">
             @include('_partials.macros',["width"=>25,"withbg"=>'#696cff'])
           </span>
-          <span class="app-brand-text demo menu-text fw-bolder">Rafu Guard</span>
+          <span class="app-brand-text  menu-text fw-bolder">Rafu Guard</span>
         </a>
       </div>
       @endif
