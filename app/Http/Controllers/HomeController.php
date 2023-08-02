@@ -30,8 +30,9 @@ class HomeController extends Controller
 
     public function customBlocking()
     {
+        $userId = auth()->id(); // Assuming you're using Laravel's authentication system
 
-        $customBlockList = CustomUrlBlock::all();
+        $customBlockList = CustomUrlBlock::where('user_id',  $userId)->get();
         return view('custom_blocking.index', compact('customBlockList'));
     }
 
