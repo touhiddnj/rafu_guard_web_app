@@ -404,9 +404,9 @@
         <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-profile" aria-controls="navs-top-profile" aria-selected="false">Neautralized <span id="neutralized-count"></span></button>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-messages" aria-controls="navs-top-messages" aria-selected="false">Messages</button>
-        </li>
+        </li> --}}
       </ul>
       <div class="tab-content">
         <div class="tab-pane fade show active" id="navs-top-home" role="tabpanel">
