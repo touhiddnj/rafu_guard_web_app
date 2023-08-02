@@ -430,7 +430,7 @@
         </div>
         <div class="tab-pane fade" id="navs-top-profile" role="tabpanel">
 			
-			<h4 style="text-align: center; color: #0000CF; ">Premium</h4>
+			<h4 style="text-align: center; font-size: 16px; color: #0000CF; ">Premium</h4>
 
         </div>
         <div class="tab-pane fade" id="navs-top-messages" role="tabpanel">
