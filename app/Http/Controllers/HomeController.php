@@ -28,6 +28,13 @@ class HomeController extends Controller
         return view('content.dashboard.dashboards-analytics');
     }
 
+
+    public function overview()
+    {
+        // return view('home');
+        return view('content.dashboard.dashboards-analytics');
+    }
+
     public function customBlocking()
     {
         $userId = auth()->id(); // Assuming you're using Laravel's authentication system

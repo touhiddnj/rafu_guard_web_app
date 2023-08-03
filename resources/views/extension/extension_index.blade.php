@@ -397,11 +397,12 @@
 <div class="card">
   {{-- <h5 class="card-header"></h5> --}}
   <div class="card-body">
-	<h3>Detecting Malicious Extensions</h3>
-	<p>Rafu Guard is an automated security system that identifies and eliminates malicious extensions that pose a threat to your personal information, inject adware, or modify your browser configurations.</p>
-	
+
 	<div class="row">
 		<div class="col-md-8 mb-4">
+			<h3>Detecting Malicious Extensions</h3>
+			<p>Rafu Guard is an automated security system that identifies and eliminates malicious extensions that pose a threat to your personal information, inject adware, or modify your browser configurations.</p>
+			
 			<div class="border border-success rounded p-2" style="max-width: 400px;">
 				Real-Time Protection
 				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -409,7 +410,9 @@
 				  </button>
 			</div>
 		</div>
-		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<img src="https://cdn.guard.io/src/GUARDIO_APP1_fervent_ninetales_342de/assets/extensions.e7889d20e8.svg">
+		</div>
 	</div>
 	<ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">

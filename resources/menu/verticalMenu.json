@@ -7,10 +7,10 @@
       "slug": "dashboard-analytics"
     },
     {
-      "url": "/",
+      "url": "/overview",
       "name": "Overview",
       "icon": "menu-icon tf-icons bx bx-extension",
-      "slug": "dashboard-analytics"
+      "slug": "overview"
     },
     {
       "url": "/Browsing",

@@ -348,8 +348,25 @@
 </h4>
 
 <!-- Basic Bootstrap Table -->
-<div class="card">
-  <h5 class="card-header">Custom Blocking</h5>
+<div class="card p-4">
+  {{-- <h5 class="card-header">Custom Blocking</h5> --}}
+  <div class="row">
+		<div class="col-md-8 mb-4">
+			<h3>Custom Blocking</h3>
+			<p>With Rafu Guard, your browsing environment is constantly safeguarded as it proactively scans every site, page, and service you access, ensuring comprehensive protection.</p>
+			
+			<div class="border border-success rounded p-2" style="max-width: 400px;">
+				Real-Time Protection
+				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+					<div class="handle"></div>
+				  </button>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<img src="https://cdn.guard.io/src/GUARDIO_APP1_fervent_ninetales_342de/assets/browsing.d78547ef10.svg">
+		</div>
+	</div>
+
   <div class="table-responsive text-nowrap">
     <table class="table" id="blocked-url-list">
       <thead>
