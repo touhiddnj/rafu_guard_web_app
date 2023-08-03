@@ -395,8 +395,22 @@
 
 <!-- Basic Bootstrap Table -->
 <div class="card">
-  <h5 class="card-header">Safeguarding Against Malicious Browser Extensions</h5>
+  {{-- <h5 class="card-header"></h5> --}}
   <div class="card-body">
+	<h3>Detecting Malicious Extensions</h3>
+	<p>Rafu Guard is an automated security system that identifies and eliminates malicious extensions that pose a threat to your personal information, inject adware, or modify your browser configurations.</p>
+	
+	<div class="row">
+		<div class="col-md-8 mb-4">
+			<div class="border border-success rounded p-2" style="max-width: 400px;">
+				Real-Time Protection
+				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+					<div class="handle"></div>
+				  </button>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
 	<ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-home" aria-controls="navs-top-home" aria-selected="true">Installed <span id="install-count"></span></button>

@@ -395,10 +395,106 @@
 
 <!-- Basic Bootstrap Table -->
 <div class="card">
-  <h5 class="card-header">Browsing Setting</h5>
+  {{-- <h5 class="card-header">Browsing Setting</h5> --}}
   <div class="card-body">
+	<h3>Browsing Protection</h3>
+	<p>With Rafu Guard, your browsing environment is constantly safeguarded as it proactively scans every site, page, and service you access, ensuring comprehensive protection.</p>
+    
+	<div class="row">
+		<div class="col-md-8 mb-4">
+			<div class="border border-success rounded p-2" style="max-width: 400px;">
+				Real-Time Protection
+				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+					<div class="handle"></div>
+				  </button>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card mb-3">
+				<div class="row g-0">
+				  <div class="col-md-10">
+					<div class="card-body">
+					  <h5 class="card-title">Harmful Site Blocks</h5>
+					  <p class="card-text">
+						Advanced anti-phishing protection from emails and web pages that attempt to steal personal or payment information.
+					  </p>
+					  {{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+					</div>
+				  </div>
+				  <div class="col-md-2 mt-4">
+					<button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+						<div class="handle"></div>
+					  </button>
+				  </div>
+				</div>
+			  </div>
+		</div>
+		<div class="col-md-6">
+			<div class="row g-0">
+				<div class="col-md-10">
+				  <div class="card-body">
+					<h5 class="card-title">Dangerous Download Blocks</h5>
+					<p class="card-text">
+						Block downloads designed to cause damage before they get to your computer.
+					</p>
+					{{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+				  </div>
+				</div>
+				<div class="col-md-2 mt-4">
+				  <button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+					  <div class="handle"></div>
+					</button>
+				</div>
+			  </div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="row g-0">
+					<div class="col-md-10">
+					  <div class="card-body">
+						<h5 class="card-title">Suspicious Site Alerts</h5>
+						<p class="card-text">
+							Know when to take extra care when visiting sites that have low credibility.
+						</p>
+						{{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+					  </div>
+					</div>
+					<div class="col-md-2 mt-4">
+					  <button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+						  <div class="handle"></div>
+						</button>
+					</div>
+				  </div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="row g-0">
+						<div class="col-md-10">
+						  <div class="card-body">
+							<h5 class="card-title">Webcam & Microphone Alerts</h5>
+							<p class="card-text">
+								Maintain privacy and get notified when access to your camera and microphone are still enabled on an open tab.
+							</p>
+							{{-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+						  </div>
+						</div>
+						<div class="col-md-2 mt-4">
+						  <button type="button" class="btn btn-sm btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+							  <div class="handle"></div>
+							</button>
+						</div>
+					  </div>
+					</div>
+
+
+		</div>
+	</div>
 	
-    <div class="row">
+	<div class="row">
 {{--       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
@@ -414,10 +510,10 @@
           </div>
           </div>
       </div> --}}
-	  <div class="col-md-4">Phishing site blocking:</div>
+{{-- 	  <div class="col-md-4">Phishing site blocking:</div>
 	  <div class="col-md-4"><button type="button" class="btn btn-sm btn-secondary btn-toggle ext-enable active" data-toggle="button" aria-pressed="false" autocomplete="off">
 		<div class="handle"></div>
-	  </button></div>
+	  </button></div> --}}
     </div>
   </div>
  
