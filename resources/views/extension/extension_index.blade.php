@@ -399,15 +399,15 @@
   <div class="card-body">
 
 	<div class="row">
-		<div class="col-md-8 mb-4">
+		<div class="col-md-8 mb-4" style="margin-top: 100px;">
 			<h3>Detecting Malicious Extensions</h3>
 			<p>Rafu Guard is an automated security system that identifies and eliminates malicious extensions that pose a threat to your personal information, inject adware, or modify your browser configurations.</p>
 			
-			<div class="border border-success rounded p-2" style="max-width: 400px;">
-				Real-Time Protection
-				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+			<div class="border border-success rounded p-2 d-flex justify-content-between align-items-center" style="max-width: 300px;">
+				<div>Real-Time Protection</div>
+				<button type="button" class="btn btn-toggle btn-sm active" data-toggle="button" aria-pressed="true" autocomplete="off">
 					<div class="handle"></div>
-				  </button>
+				</button>
 			</div>
 		</div>
 		<div class="col-md-4">

@@ -399,15 +399,15 @@
   <div class="card-body">
 
 	<div class="row">
-		<div class="col-md-8 mb-4">
+		<div class="col-md-8 mb-4 " style="padding-top: 100px;">
 			<h3>Browsing Protection</h3>
 			<p>With Rafu Guard, your browsing environment is constantly safeguarded as it proactively scans every site, page, and service you access, ensuring comprehensive protection.</p>
 			
-			<div class="border border-success rounded p-2" style="max-width: 400px;">
-				Real-Time Protection
-				<button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
+			<div class="border border-success rounded p-2 d-flex justify-content-between align-items-center" style="max-width: 300px;">
+				<div>Real-Time Protection</div>
+				<button type="button" class="btn btn-toggle btn-sm active" data-toggle="button" aria-pressed="true" autocomplete="off">
 					<div class="handle"></div>
-				  </button>
+				</button>
 			</div>
 		</div>
 		<div class="col-md-4">
