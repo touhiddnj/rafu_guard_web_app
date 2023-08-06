@@ -435,7 +435,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="/icons/flat/128 x 128/10340 - Computer Security.png" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -469,7 +469,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\flat\128 x 128\10345 - Phishing.png" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -503,7 +503,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\flat\128 x 128\10324 - Firewall.png" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
