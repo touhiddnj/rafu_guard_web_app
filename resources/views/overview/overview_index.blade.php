@@ -26,7 +26,7 @@
      width: 3rem;
      border-radius: 1.5rem;
      color: #6b7381;
-     background: #bdc1c8;
+     background: #f25532;
   }
    .btn-toggle:focus, .btn-toggle:focus.active, .btn-toggle.focus, .btn-toggle.focus.active {
      outline: none;
