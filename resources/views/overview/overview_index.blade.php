@@ -450,7 +450,7 @@
           <span class="fs-4 fw-semibold d-block mb-1 text-white">PC Protection</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2 text-white fs-5">Malware and Harmful Objects Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -484,7 +484,7 @@
           <span class="fs-4 fw-semibold d-block mb-1 text-white">Scam Shield</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2 text-white fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -538,7 +538,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\flat\128 x 128\10340 - Computer Security.png" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -553,7 +553,7 @@
           <span class="fs-4 fw-semibold d-block mb-1 text-white">Disk Information</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2 text-white fs-5">Malware and Harmful Objects Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -572,7 +572,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\flat\128 x 128\10345 - Phishing.png" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -587,7 +587,7 @@
           <span class="fs-4 fw-semibold d-block mb-1 text-white">Other Security</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2 text-white fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
