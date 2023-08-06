@@ -102,7 +102,7 @@
      color: #6b7381;
   }
    .btn-toggle.active {
-     background-color: #29b5a8;
+     background-color: #6bc85a;
   }
    .btn-toggle.btn-lg {
      margin: 0 5rem;
