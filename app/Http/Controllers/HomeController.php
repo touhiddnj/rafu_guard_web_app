@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function overview()
     {
         // return view('home');
-        return view('content.dashboard.dashboards-analytics');
+        return view('overview/overview_index');
     }
 
     public function customBlocking()
