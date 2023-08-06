@@ -342,11 +342,11 @@
      display: none;
   }
    .btn-toggle.btn-secondary {
-     color: #f25532;
-     background: #bdc1c8;
+     color: #6b7381;
+     background: #f25532;
   }
    .btn-toggle.btn-secondary:before, .btn-toggle.btn-secondary:after {
-     color: #f25532;
+     color: #6b7381;
   }
    .btn-toggle.btn-secondary.active {
      background-color: #ff8300;
