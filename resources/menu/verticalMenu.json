@@ -14,9 +14,15 @@
     },
     {
       "url": "/Browsing",
-      "name": "Browsing",
+      "name": "Phishing Security",
       "icon": "menu-icon tf-icons bx bx-globe",
       "slug": "browsing"
+    },
+    {
+      "url": "/pc-security",
+      "name": "PC Protection",
+      "icon": "menu-icon tf-icons bx bx-check-shield",
+      "slug": "pcprotection"
     },
     {
       "url": "/CustomBlocking",
@@ -47,12 +53,6 @@
       "url": "/Hijackers",
       "name": "Hijackers",
       "icon": "menu-icon tf-icons bx bx-dizzy",
-      "slug": "hijackers"
-    },
-    {
-      "url": "/pc-security",
-      "name": "PC Security",
-      "icon": "menu-icon tf-icons bx bx-check-shield",
       "slug": "hijackers"
     }
   ]
