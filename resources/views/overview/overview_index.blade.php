@@ -360,7 +360,7 @@
       <div class="container">
         <div class="row align-items-center" style="height:auto">
           <div class="col-md-2 text-center">
-           <img style="max-width: 80px;" src="/icons/flat/128 x 128/10347 - Window Error.png"/>
+           <img style="max-width: 80px;" src="/icons/svg/10347 - Window Error.svg"/>
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-10 text-center mt-3">
@@ -401,7 +401,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10315 - Antivirus.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="/icons/svg/10315 - Antivirus.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -435,7 +435,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="/icons/flat/128 x 128/10340 - Computer Security.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="/icons/svg/10340 - Computer Security.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -469,7 +469,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10345 - Phishing.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\svg\10345 - Phishing.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -503,7 +503,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10324 - Firewall.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\svg\10324 - Firewall.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -538,7 +538,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10340 - Computer Security.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\svg\10340 - Computer Security.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -572,7 +572,7 @@
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\flat\128 x 128\10345 - Phishing.png" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\svg\10345 - Phishing.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
