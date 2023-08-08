@@ -356,7 +356,7 @@
   
 <div class="row">
   <div class="col-lg-8 mb-4 order-0">
-    <div class="card p-4" style="background-color: #535353;">
+    <div class="card p-4" >
       <div class="container">
         <div class="row align-items-center" style="height:auto">
           <div class="col-md-2 text-center">
@@ -364,7 +364,7 @@
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-10 text-center">
-            <h3 class="text-white">Agent is not found!</h3>
+            <h3 class="">Agent is not found!</h3>
             
           </div>
         </div>
@@ -373,7 +373,7 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-4 order-1">
-    <div class="card p-4" style="background-color: #535353;">
+    <div class="card p-4" >
       <div class="container">
         <div class="row align-items-center" style="height: auto">
           <div class="col-md-4 text-center">
@@ -381,7 +381,7 @@
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-8 text-center">
-            <h3 class="text-white">AI Engine</h3>
+            <h3 class="">AI Engine</h3>
             <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
               <div class="handle"></div>
             </button>
@@ -397,7 +397,7 @@
 
 <div class="row">
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -413,10 +413,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">Phishing Security</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">Phishing Security</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2  fs-5">Shielding from latest phishing technique</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -431,7 +431,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -447,10 +447,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">PC Protection</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">PC Protection</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Malware and Harmful Objects Protection</h3>
+              <h3 class="card-title mb-2  fs-5">Malware and Harmful Objects Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -465,7 +465,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -481,10 +481,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">Scam Shield</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">Scam Shield</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
+              <h3 class="card-title mb-2  fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -499,7 +499,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -515,10 +515,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">Firewall Config</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">Firewall Config</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Shielding from latest phishing technique</h3>
+              <h3 class="card-title mb-2  fs-5">Shielding from latest phishing technique</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -534,7 +534,7 @@
 
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -550,10 +550,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">Disk Information</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">Disk Information</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">Malware and Harmful Objects Protection</h3>
+              <h3 class="card-title mb-2  fs-5">Malware and Harmful Objects Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
@@ -568,7 +568,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="background-color: #535353;">
+      <div class="card" >
         <div class="card-body">
           <div class="card-title d-flex align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -584,10 +584,10 @@
               </div>
             </div> --}}
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 text-white">Other Security</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">Other Security</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2 text-white fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
+              <h3 class="card-title mb-2  fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
             </div>
             <div style="flex: 20%;">
               <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
