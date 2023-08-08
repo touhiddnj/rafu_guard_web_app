@@ -381,10 +381,25 @@
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-8 text-center">
-            <h3 class="">AI Engine</h3>
-            <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
-              <div class="handle"></div>
-            </button>
+            <div style="display: flex; flex-direction: row; margin-top: 20px;">
+              <div style="flex: 80%; "> <!-- First column with 80% width -->
+                  <!-- Content for the first column -->
+                  <h3 class="" style="">AI Engine</h3>
+              </div>
+              <div style="flex: 20%; "> <!-- Second column with 20% width -->
+                  <!-- Content for the second column -->
+                  <button style=" float: right; margin-right: -20px; margin-top: 3px;" type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+                    <div class="handle"></div>
+                  </button>
+              </div>
+          </div>
+            <div class="col-xs-8">
+             
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+          
           </div>
         </div>
       </div>
@@ -652,12 +667,12 @@
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <span class="avatar-initial rounded bg-label-success"><i class='bx bx-closet'></i></span>
+              <span class="avatar-initial rounded bg-label-warning"><i class='bx bx-error'></i></span>
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
                 <h6 class="mb-0">All Infections</h6>
-                <small class="text-muted">Malware, Spyware, Ransomware, Trojan</small>
+                <small class="text-muted">Malware, Spyware,  Trojan</small>
               </div>
               <div class="user-progress">
                 <small class="fw-semibold">23.8k</small>
@@ -666,7 +681,7 @@
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <span class="avatar-initial rounded bg-label-info"><i class='bx bx-home-alt'></i></span>
+              <span class="avatar-initial rounded bg-label-danger"><i class='bx bx-bug'></i></span>
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
