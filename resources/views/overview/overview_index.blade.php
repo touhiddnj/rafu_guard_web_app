@@ -364,7 +364,7 @@
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-10 text-center mt-3">
-            <h3 class="">Agent is not found!</h3>
+            <h3 id="agent-status" class="">Agent is not found!</h3>
             
           </div>
         </div>
