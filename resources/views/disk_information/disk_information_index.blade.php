@@ -351,6 +351,19 @@
    .btn-toggle.btn-secondary.active {
      background-color: #ff8300;
   }
+
+
+
+
+
+  .progress {
+    display: flex;
+    height: 1.2rem; 
+    overflow: hidden;
+    font-size: 1rem;
+    background-color: rgba(67, 89, 113, 0.1);
+    border-radius: 10rem;
+}
    
     </style>
 
