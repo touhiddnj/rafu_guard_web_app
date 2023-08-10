@@ -353,6 +353,14 @@
   }
    
     </style>
+
+
+
+  <div class="row row-cols-md-2 g-4" id="driveContainer">
+    <!-- Drive cards will be added here using jQuery -->
+  </div>
+
+
   
 <div class="row">
   <div class="col-lg-8 mb-4 order-0">
