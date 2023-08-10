@@ -16,3 +16,21 @@
 <!-- BEGIN: Page JS-->
 @yield('page-script')
 <!-- END: Page JS-->
+
+<script>
+    $(document).ready(function() {
+          // Show the modal when the button is clicked
+          $("#licenseBtn").click(function() {
+              $("#pricingModal").modal("show");
+          });
+          $("#docBtn").click(function() {
+              $("#docModal").modal("show");
+          });
+          $("#supportBtn").click(function() {
+              $("#supportModal").modal("show");
+          });
+
+          
+      });
+  
+  </script>

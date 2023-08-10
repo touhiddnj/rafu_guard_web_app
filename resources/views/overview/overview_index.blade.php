@@ -759,8 +759,8 @@
   <div class="col-md-6 col-lg-4 order-2 mb-4">
     <div class="card h-100">
       <div class="card-header d-flex align-items-center justify-content-between">
-        <h5 class="card-title m-0 me-2">Transactions</h5>
-        <div class="dropdown">
+        <h5 class="card-title m-0 me-2">Addons</h5>
+{{--         <div class="dropdown">
           <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="bx bx-dots-vertical-rounded"></i>
           </button>
@@ -769,91 +769,95 @@
             <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
             <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="card-body">
         <ul class="p-0 m-0">
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/paypal.png')}}" alt="User" class="rounded">
+              <img src="https://rafusoft.com//assets/frontend/img/favicon/apple-icon-57x57.png" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Paypal</small>
-                <h6 class="mb-0">Send money</h6>
+                <h6 class="mb-0">Rafusoft Vault</h6>
+                <small class="text-muted d-block mb-1">Malware Analysis</small>
+               
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+82.6</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+82</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/wallet.png')}}" alt="User" class="rounded">
+              <img src="https://www.virustotal.com/gui/images/manifest/icon-192x192.png" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Wallet</small>
-                <h6 class="mb-0">Mac'D</h6>
+                <h6 class="mb-0">Virus Total</h6>
+                <small class="text-muted d-block mb-1">Threat Intelligence</small>
+
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+270.69</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+80</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/chart.png')}}" alt="User" class="rounded">
+              <img src="https://seeklogo.com/images/T/talos-logo-ACBB21661C-seeklogo.com.png" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Transfer</small>
-                <h6 class="mb-0">Refund</h6>
+                <h6 class="mb-0">CISCO TALOS</h6>
+                <small class="text-muted d-block mb-1">Threat Intelligence</small>
+
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+637.91</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+75</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/cc-success.png')}}" alt="User" class="rounded">
+              <img src="https://threatconnect.com/apple-touch-icon.png" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Credit Card</small>
-                <h6 class="mb-0">Ordered Food</h6>
+                <h6 class="mb-0">ThreatConnect</h6>
+                <small class="text-muted d-block mb-1">Threat Intelligence</small>
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">-838.71</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+70</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
           <li class="d-flex mb-4 pb-1">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/wallet.png')}}" alt="User" class="rounded">
+              <img src="https://www.paloaltonetworks.com/etc/clientlibs/pan/img/favicons2020/android-chrome-192x192.png" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Wallet</small>
-                <h6 class="mb-0">Starbucks</h6>
+                <h6 class="mb-0">Palo Alto Network</h6>
+                <small class="text-muted d-block mb-1">Threat Intelligence</small>
+
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+203.33</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+80</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
           <li class="d-flex">
             <div class="avatar flex-shrink-0 me-3">
-              <img src="{{asset('assets/img/icons/unicons/cc-warning.png')}}" alt="User" class="rounded">
+              <img src="https://mc-e5b0d581-4409-4340-bc8b-9266-cdn-endpoint.azureedge.net/-/media/project/nuernberg-messe/it-sa/itsa365/companies/c/crowdstrike-gmbh/2211880.png?rev=eb05f1d0afc148f38f27749ce6cc47c5" alt="User" class="rounded">
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <small class="text-muted d-block mb-1">Mastercard</small>
-                <h6 class="mb-0">Ordered Food</h6>
+                <small class="text-muted d-block mb-1">Threat Intelligence</small>
+                <h6 class="mb-0">CrowdStrike</h6>
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">-92.45</h6> <span class="text-muted">USD</span>
+                <h6 class="mb-0">+65</h6> <span class="text-muted">★</span>
               </div>
             </div>
           </li>
