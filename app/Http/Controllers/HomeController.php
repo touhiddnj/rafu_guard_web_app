@@ -76,6 +76,15 @@ class HomeController extends Controller
     {
         return view('browsing.browsing_index');
     }
+
+    public function diskInformation()
+    {
+        return view('disk_information.disk_information_index');
+    }
+
+
+
+
     public function enableDomain($id)
     {
         /*         $info = CustomUrlBlock::find($id);

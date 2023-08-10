@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
     Route::get('overview', $controller_path . '\HomeController@overview')->name('overview');
     Route::get('CustomBlocking', $controller_path . '\HomeController@CustomBlocking')->name('custom-blocking');
+    Route::get('disk-information', $controller_path . '\HomeController@diskInformation')->name('disk-information');
     Route::post('url-blocking-add', $controller_path . '\HomeController@CustomBlockingAdd')->name('custom-blocking-add');
     Route::get('custom-blocking/delete/{id}', $controller_path . '\HomeController@customBlockingRemove')->name('custom-blocking-remove');
 
