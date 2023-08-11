@@ -636,7 +636,7 @@
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <div class="d-flex flex-column align-items-center gap-1">
-            <h2 class="mb-2">8,258</h2>
+            <h2 id="total-file-count" class="mb-2">---</h2>
             <span>Total Files</span>
           </div>
           <div id="orderStatisticsChart"></div>
@@ -652,7 +652,7 @@
                 <small class="text-muted">exe,msi</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold">82.5k</small>
+                <small class="fw-semibold" id="total-app-count">82.5k</small>
               </div>
             </div>
           </li>
