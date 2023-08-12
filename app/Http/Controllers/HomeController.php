@@ -35,6 +35,12 @@ class HomeController extends Controller
         return view('overview/overview_index');
     }
 
+    public function pcProtection()
+    {
+        // return view('home');
+        return view('pc_protection.pc_protection_index');
+    }
+
     public function customBlocking()
     {
         $userId = auth()->id(); // Assuming you're using Laravel's authentication system

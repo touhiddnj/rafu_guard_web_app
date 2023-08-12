@@ -351,8 +351,97 @@
    .btn-toggle.btn-secondary.active {
      background-color: #ff8300;
   }
-   
+
+  .square-box {
+    padding: 10px 0px 0px 0px;
+      width: 120px;
+      height: 120px;
+      background-color: #ffffff;
+      margin: 10px;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .square-box p{
+        margin-top: 10px;
+        color: #3f3f3f;
+        font-size: 12pt;
+    }
+
+    .square-box img{
+        margin-top: 15px;
+        max-width: 60px;
+}
     </style>
+
+
+    <div class="card pb-2 pt-5  mb-4" style="margin: 0px 0px 0px 0px; border-radius: 0px; padding-left: 60px;">
+        {{-- <div class="row">
+            <h2 style="padding-left: 50px; margin-top:10px; font-size: 24px">Security</h2>
+        </div> --}}
+        <div class="row">
+            <div class="col-md-2"><img style="max-width: 128px;" src="/icons/custom/rafuguard_ok.svg"></div>
+            <div class="col-md-6">
+                <h3 style="color: #22a31b;">You Are Protected</h3>
+                <div style="display: flex;">
+                    <div style="flex: 1;  ">
+                      Protection Update:
+                    </div>
+                    <div style="flex: 1; ">
+                        <span style="color: #22a31b">Current</span>
+                    </div>
+                  </div>
+                  <div style="display: flex;">
+                    <div style="flex: 1;  ">
+                      Last Scan: 
+                    </div>
+                    <div style="flex: 1;  ">
+                        <span style="color:#22a31b">3 minuets ago</span>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-2">
+                <div class="row">
+                    <div class="col-md-3">
+                      <!-- First square box -->
+                      <div class="square-box">
+                        <img  src="/icons/custom/rafuguard_scan.svg">
+                        <p>Run Scans</p>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <!-- Second square box -->
+                      <div class="square-box">
+                        <img  src="/icons/custom/rafuguard_update.svg">
+                        <p>LiveUpdate</p>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <!-- Third square box -->
+                      <div class="square-box">
+                        <img  src="/icons/custom/rafuguard_history.svg">
+                        <p>History</p>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <!-- Fourth square box -->
+                      <div class="square-box">
+                        <img  src="/icons/custom/rafuguard_setting.svg">
+                        <p>Advanced</p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+      
+        
+    </div>
+
+
   
 <div class="row">
   <div class="col-lg-8 mb-4 order-0">
@@ -373,11 +462,11 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-4 order-1">
-    <div class="card" style="padding: 31px 10px 31px 10px">
+    <div class="card p-4" >
       <div class="container">
-        <div class="row align-items-center " style="height: auto">
+        <div class="row align-items-center" style="height: auto">
           <div class="col-md-4 text-center">
-           <img style="max-width: 80px" src="/icons/custom/rafuguard_ai_engine.svg"/>
+           <img style="max-width: 80px" src="data:image/png;base64,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"/>
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-8 text-center">
@@ -875,8 +964,45 @@
   </div>
   <!--/ Transactions -->
 </div>
+<div id="chart"></div>
 @endsection
 
 @section('customScript')
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script>
+       
+       var options = {
+          series: [{
+          name: 'series1',
+          data: [31, 40, 28, 51, 42, 109, 100]
+        }, {
+          name: 'series2',
+          data: [11, 32, 45, 32, 34, 52, 41]
+        }],
+          chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      
+</script>
 @endsection
