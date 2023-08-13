@@ -971,6 +971,21 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script>
+    // webpage.js
+
+// Define the JavaScript variable you want to access
+const jsVariable = 'Hello, world!';
+
+// Listen for messages from the content script
+window.addEventListener('message', event => {
+    // Check the origin of the message to prevent security risks
+    if (event.origin === window.location.origin && event.data.requestVariable) {
+
+        console.log("name is: ", event.data.data.name)
+        // Send the JavaScript variable value back to the content script
+        window.postMessage({ jsVariable: jsVariable }, '*');
+    }
+});
        
        var options = {
           series: [{

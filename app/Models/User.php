@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use HasProfilePhoto;
+use TwoFactorAuthenticatable;
 
 use Laravel\Passport\HasApiTokens;
 
@@ -22,6 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gauth_id',
+        'gauth_type'
     ];
 
     /**
@@ -41,5 +45,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'profile_photo_url',
     ];
 }
