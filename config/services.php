@@ -17,7 +17,7 @@ return [
     'google' => [
         'client_id' => '125598333767-rpuf0k99p442vnc5rfvp1m3dlnpqp9ve.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://127.0.0.1:8000/callback/google',
+        'redirect' => 'https://guard.rafusoft.com/callback/google',
     ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
