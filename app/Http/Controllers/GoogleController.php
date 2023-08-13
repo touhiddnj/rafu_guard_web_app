@@ -19,13 +19,13 @@ class GoogleController extends Controller
 
             $user = Socialite::driver('google')->user();
 
-            $finduser = User::where('gauth_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
 
             if ($finduser) {
 
                 Auth::login($finduser);
 
-                return redirect('/dashboard');
+                return redirect('/');
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
@@ -37,7 +37,7 @@ class GoogleController extends Controller
 
                 Auth::login($newUser);
 
-                return redirect('/dashboard');
+                return redirect('/');
             }
         } catch (\Exception $e) {
             dd($e->getMessage());

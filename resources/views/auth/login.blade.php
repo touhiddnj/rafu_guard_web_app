@@ -64,9 +64,11 @@
             </div>
             <div class="mb-3">
               <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-              <a href="{{ url('auth/google') }}" style="margin-top: 0px !important;background: #C84130;color: #ffffff;padding: 8px;border-radius:6px;" class="ml-2">
-                <strong>Login with Google</strong>
-              </a> 
+              <div class="mt-2">
+                <a class="btn btn-danger btn-block" href="{{ url('auth/google') }}" style="margin-top: 0px !important;background: #C84130;color: #ffffff; width: 100%;" >
+                  <strong>Login with Google</strong>
+                </a> 
+              </div>
             </div>
           </form>
 
