@@ -390,7 +390,7 @@
 
   </style>
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Dashboard/</span> Browsing
+  <span class="text-muted fw-light">/</span> Browsing
 </h4>
 
 <!-- Basic Bootstrap Table -->
