@@ -4,11 +4,7 @@
 
 @section('content')
 <style>
- body {
-	 font-family: "Montserrat", "Lato", "Open Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
-	 color: #6b7381;
-	 background: #f2f2f2;
-}
+
  .jumbotron {
 	 background: #6b7381;
 	 color: #bdc1c8;
@@ -530,12 +526,5 @@
 @endsection
 
 @section('customScript')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-<script>
-   $(document).ready(function() {
 
-    });
-
-
-</script>
 @endsection
