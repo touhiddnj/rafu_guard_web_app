@@ -416,7 +416,7 @@
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="/icons/svg/rafuguard_phishing_logo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="/icons/custom/rafuguard_phishing_logo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -484,7 +484,7 @@
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\svg\rafuguard_scam.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\custom\rafuguard_scam.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -518,7 +518,7 @@
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\svg\rafuguard_firewall.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\custom\rafuguard_firewall.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -553,7 +553,7 @@
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\svg\rafuguard_diskinfo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\custom\rafuguard_diskinfo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -587,7 +587,7 @@
         <div class="card-body">
           <div class="card-title align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\svg\rafuguard_diskinfo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\custom\rafuguard_diskinfo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
             </div>
 {{--             <div class="dropdown">
               <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
