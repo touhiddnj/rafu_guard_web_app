@@ -446,7 +446,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" style="height: 27.70vh">
+      <div class="card">
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
@@ -480,7 +480,7 @@
     </div>
 
     <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-      <div class="card" >
+      <div class="card" style="height: 27.70vh">
         <div class="card-body">
           <div class="card-title  align-items-start justify-content-between">
             <div class="flex-shrink-0">
