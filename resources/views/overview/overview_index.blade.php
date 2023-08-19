@@ -740,7 +740,7 @@
               <div class="avatar flex-shrink-0 me-3">
                 <img src="{{asset('assets/img/icons/unicons/wallet.png')}}" alt="User">
               </div>
-              <div>
+{{--               <div>
                 <small class="text-muted d-block">Total Balance</small>
                 <div class="d-flex align-items-center">
                   <h6 class="mb-0 me-1">$459.10</h6>
@@ -749,10 +749,10 @@
                     42.9%
                   </small>
                 </div>
-              </div>
+              </div> --}}
             </div>
-            <div id="incomeChart"></div>
-            <div class="d-flex justify-content-center pt-4 gap-2">
+            {{-- <div id="incomeChart"></div> --}}
+{{--             <div class="d-flex justify-content-center pt-4 gap-2">
               <div class="flex-shrink-0">
                 <div id="expensesOfWeek"></div>
               </div>
@@ -760,7 +760,7 @@
                 <p class="mb-n1 mt-1">Expenses This Week</p>
                 <small class="text-muted">$39 less than last week</small>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>
