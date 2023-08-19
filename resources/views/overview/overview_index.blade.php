@@ -717,7 +717,11 @@
   <div class="col-md-6 col-lg-4 order-1 mb-4">
     <div class="card h-100">
       <div class="card-header">
-        <ul class="nav nav-pills" role="tablist">
+        <div class="card-title mb-0">
+          <h5 class="m-0 me-2">Scan Statistics</h5>
+          <small class="text-muted">42.82k Total Scans</small>
+        </div>
+        {{-- <ul class="nav nav-pills" role="tablist">
           <li class="nav-item">
             <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#navs-tabs-line-card-income" aria-controls="navs-tabs-line-card-income" aria-selected="true">Income</button>
           </li>
@@ -727,7 +731,7 @@
           <li class="nav-item">
             <button type="button" class="nav-link" role="tab">Profit</button>
           </li>
-        </ul>
+        </ul> --}}
       </div>
       <div class="card-body px-0">
         <div class="tab-content p-0">
