@@ -31,7 +31,8 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
 
     // Main Page Route
     // Route::get('/', $controller_path . '\dashboard\Analytics@index')->name('dashboard-analytics');
-    Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
+    // Route::get('/', $controller_path . '\HomeController@index')->name('dashboard-analytics');
+    Route::get('/', $controller_path . '\HomeController@overview')->name('overview');
     Route::get('overview', $controller_path . '\HomeController@overview')->name('overview');
     Route::get('CustomBlocking', $controller_path . '\HomeController@CustomBlocking')->name('custom-blocking');
     Route::get('disk-information', $controller_path . '\HomeController@diskInformation')->name('disk-information');
