@@ -100,7 +100,7 @@
         <img src="/themes/lander/assets/images/imac.png" alt="image">
       </div>
       <div class="hero__info">
-        <h1 class="main-heading main-heading-white">Online accounting software for your small business!</h1>
+        <h1 class="main-heading main-heading-white">"Rafu Guard: Chrome's shield against malware threats.</h1>
         <a href="{{ url('auth/google') }}" class="button" style="background: #C84130;color: #ffffff; border-color: #C84130;">Login with Google</a>
         &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
         <a href="/site-login" class="button">Login</a>
