@@ -365,7 +365,7 @@
           </div>
           <div class="col-md-10 text-center mt-3">
             <h3 id="agent-status" class="">Agent is not found!</h3>
-            
+            <a target="_blank" href="Installer.msi">Download Agent</a>
           </div>
         </div>
       </div>

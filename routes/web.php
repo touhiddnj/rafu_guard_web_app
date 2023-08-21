@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ $controller_path = 'App\Http\Controllers';
 
 
 Route::get('login', [LoginController::class, 'show']);
+Route::get('site-login', [FrontController::class, 'login']);
 Route::get('register', [RegisterController::class, 'show']);
 
 
