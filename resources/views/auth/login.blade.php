@@ -55,7 +55,7 @@
       <div class="header__wrapper">
         <div class="header__logo">
           <a href="index.html">
-            <img src="/themes/lander/assets/images/logo.png" alt="logo">
+            <img src="/icons/logo_landing.png" alt="logo">
           </a>
         </div>
         <div class="header__nav">
@@ -90,7 +90,7 @@
         <h1 class="main-heading main-heading-white">Online accounting software for your small business!</h1>
         <a href="{{ url('auth/google') }}" class="button" style="background: #C84130;color: #ffffff; border-color: #C84130;">Login with Google</a>
         &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-        <a href="#" class="button">Login</a>
+        <a href="/site-login" class="button">Login</a>
       </div>
     </div>
     <div class="footer__bottom-social">
