@@ -350,7 +350,7 @@
         <div class="row">
           <div class="footer__bottom">
             <div class="footer__bottom-copy">
-              <h6>&copy; 2020 GFXPARTNER</h6>
+              <h6>&copy; {{ date('y') }} Rafu Guard</h6>
             </div>
             <div class="footer__bottom-social">
               <h6>Follow us<span>-</span></h6>
