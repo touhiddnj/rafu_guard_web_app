@@ -360,7 +360,7 @@
       <div class="container">
         <div class="row align-items-center" style="height:auto">
           <div class="col-md-2 text-center">
-           <img id="agent-status-img" style="max-width: 80px;" src="/icons/svg/10347 - Window Error.svg"/>
+           <img id="agent-status-img" style="max-width: 80px;" src="/icons/custom/rafuguard_Agent_deactive_logo.svg"/>
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-10 text-center mt-3">
