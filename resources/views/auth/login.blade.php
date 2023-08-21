@@ -67,7 +67,7 @@
     <div class="container">
       <div class="header__wrapper">
         <div class="header__logo">
-          <a href="index.html">
+          <a href="/">
             <img src="/icons/logo_landing.png" alt="logo">
           </a>
         </div>
