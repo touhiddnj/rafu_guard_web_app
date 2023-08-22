@@ -672,7 +672,7 @@
       <div class="card-header align-items-center justify-content-between pb-0">
         <div class="card-title mb-0">
           <h5 class="m-0 me-2">Scan Statistics</h5>
-          <small class="text-muted">42.82k Total Scans</small>
+          {{-- <small class="text-muted">42.82k Total Scans</small> --}}
         </div>
 
       </div>
@@ -697,7 +697,7 @@
                 <small class="text-muted">exe,msi</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold" id="total-app-count">82.5k</small>
+                <small class="fw-semibold" id="total-app-count">---</small>
               </div>
             </div>
           </li>
@@ -714,7 +714,7 @@
                 <small class="text-muted">Malware, Spyware,  Trojan</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold">23.8k</small>
+                <small class="fw-semibold">---</small>
               </div>
             </div>
           </li>
@@ -727,11 +727,11 @@
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <h6 class="mb-0">Malicious Scan</h6>
+                <h6 class="mb-0">Malicious</h6>
                 <small class="text-muted">Unknown vendor, Riskware</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold">849k</small>
+                <small class="fw-semibold">---</small>
               </div>
             </div>
           </li>
@@ -1687,6 +1687,8 @@ window.setInterval(function () {
     }
   });
 }, 3000);
+
+
 
 
 </script>
