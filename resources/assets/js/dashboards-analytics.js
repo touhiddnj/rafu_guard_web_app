@@ -473,7 +473,7 @@
                 show: true,
                 fontSize: '0.8125rem',
                 color: axisColor,
-                label: 'Weekly',
+                label: '',
                 formatter: function (w) {
                   return '38%';
                 }

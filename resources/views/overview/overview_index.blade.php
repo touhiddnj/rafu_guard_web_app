@@ -7,7 +7,10 @@
 @endsection
 
 @section('vendor-script')
-<script src="{{asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+{{-- <script src="{{asset('assets/vendor/libs/moment.min.js')}}"></script> --}}
+{{-- <script src="{{asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script> --}}
 @endsection
 
 @section('page-script')
@@ -351,6 +354,45 @@
    .btn-toggle.btn-secondary.active {
      background-color: #ff8300;
   }
+
+
+  .box .apexcharts-xaxistooltip {
+  background: #1B213B;
+  color: #fff;
+}
+
+.content-area {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.box {
+  /* background-color: #262D47; */
+  padding: 25px 25px; 
+  border-radius: 4px; 
+}
+
+.columnbox {
+  padding-right: 15px;
+}
+.radialbox {
+  max-height: 333px;
+  margin-bottom: 60px;
+}
+
+.apexcharts-legend-series tspan:nth-child(3) {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.edit-on-codepen {
+  text-align: right;
+  width: 100%;
+  padding: 0 20px 40px;
+  position: relative;
+  top: -30px;
+  cursor: pointer;
+}
    
     </style>
   
@@ -640,7 +682,7 @@
             <h2 id="total-file-count" class="mb-2">---</h2>
             <span>Total Files</span>
           </div>
-          <div id="orderStatisticsChart"></div>
+          <div id="fileStatisticsChart"></div>
         </div>
         <ul class="p-0 m-0">
           <li class="d-flex mb-4 pb-1">
@@ -718,8 +760,8 @@
     <div class="card h-100">
       <div class="card-header">
         <div class="card-title mb-0">
-          <h5 class="m-0 me-2">Scan Statistics</h5>
-          <small class="text-muted">42.82k Total Scans</small>
+          <h5 class="m-0 me-2">Process</h5>
+          {{-- <small class="text-muted">42.82k Total Scans</small> --}}
         </div>
         {{-- <ul class="nav nav-pills" role="tablist">
           <li class="nav-item">
@@ -736,31 +778,12 @@
       <div class="card-body px-0">
         <div class="tab-content p-0">
           <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-            <div class="d-flex p-4 pt-3">
-              {{-- <div class="avatar flex-shrink-0 me-3">
-                <img src="{{asset('assets/img/icons/unicons/wallet.png')}}" alt="User">
-              </div> --}}
-{{--               <div>
-                <small class="text-muted d-block">Total Balance</small>
-                <div class="d-flex align-items-center">
-                  <h6 class="mb-0 me-1">$459.10</h6>
-                  <small class="text-success fw-semibold">
-                    <i class='bx bx-chevron-up'></i>
-                    42.9%
-                  </small>
-                </div>
-              </div> --}}
+
+            <div class="box">
+              <div id="linechart"> </div>
             </div>
-            <div id="incomeChart"></div>
-            <div class="d-flex justify-content-center pt-4 gap-2">
-              <div class="flex-shrink-0">
-                <div id="expensesOfWeek"></div>
-              </div>
-              {{-- <div>
-                <p class="mb-n1 mt-1">Expenses This Week</p>
-                <small class="text-muted">$39 less than last week</small>
-              </div> --}}
-            </div>
+            {{-- <div id="incomeChart"></div> --}}
+
           </div>
         </div>
       </div>
@@ -880,8 +903,791 @@
   </div>
   <!--/ Transactions -->
 </div>
+
+
+{{-- 
+<div id="wrapper">
+
+  <div class="content-area">
+    <div class="container-fluid">
+      <div class="main">
+
+        
+        <div class="row mt-4">
+          <div class="col-md-5">
+
+          </div>
+          <div class="col-md-7">
+              <div class="box  mt-4">
+                <div id="linechart"> </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5">
+              <div class="box radialbox mt-4">
+                  <div id="circlechart"> </div>
+                </div>
+          </div>
+          <div class="col-md-7">
+              <div class="box mt-4">
+                <div class="mt-4">
+                  <div id="progress1"></div>
+                </div>
+                <div class="mt-4">
+                  <div id="progress2"></div>
+                </div>
+                <div class="mt-4">
+                  <div id="progress3"></div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="float-right edit-on-codepen">
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> --}}
+
 @endsection
 
 @section('customScript')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script>
+
+(function () {
+
+});
+    let cardColor, headingColor, axisColor, shadeColor, borderColor;
+
+cardColor = config.colors.white;
+headingColor = config.colors.headingColor;
+axisColor = config.colors.axisColor;
+borderColor = config.colors.borderColor;
+   // Order Statistics Chart
+  // --------------------------------------------------------------------
+  const fileStatisticsChart = document.querySelector('#fileStatisticsChart'),
+    fileChartConfig = {
+      chart: {
+        height: 165,
+        width: 130,
+        type: 'donut'
+      },
+      labels: ['Application', 'Fishy', 'Malicious'],
+      series: [85, 15, 5],
+      colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
+      stroke: {
+        width: 5,
+        colors: cardColor
+      },
+      dataLabels: {
+        enabled: false,
+        formatter: function (val, opt) {
+          return parseInt(val) + '%';
+        }
+      },
+      legend: {
+        show: false
+      },
+      grid: {
+        padding: {
+          top: 0,
+          bottom: 0,
+          right: 15
+        }
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '75%',
+            labels: {
+              show: true,
+              value: {
+                fontSize: '1.5rem',
+                fontFamily: 'Public Sans',
+                color: headingColor,
+                offsetY: -15,
+                formatter: function (val) {
+                  return parseInt(val) + '%';
+                }
+              },
+              name: {
+                offsetY: 20,
+                fontFamily: 'Public Sans'
+              },
+              total: {
+                show: true,
+                fontSize: '0.8125rem',
+                color: axisColor,
+                label: 'Application',
+                formatter: function (w) {
+                  return '85%';
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+  if (typeof fileStatisticsChart !== undefined && fileStatisticsChart !== null) {
+    const statisticsChart2 = new ApexCharts(fileStatisticsChart, fileChartConfig);
+    statisticsChart2.render();
+  }
+
+  window.Apex = {
+  chart: {
+    foreColor: "#000",
+    toolbar: {
+      show: false
+    }
+  },
+  colors: ["#FCCF31", "#17ead9", "#f02fc2"],
+  stroke: {
+    width: 3
+  },
+  dataLabels: {
+    enabled: false
+  },
+  grid: {
+    borderColor: "#40475D"
+  },
+  xaxis: {
+    axisTicks: {
+      color: "#333"
+    },
+    axisBorder: {
+      color: "#333"
+    }
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      gradientToColors: ["#F55555", "#6078ea", "#6094ea"]
+    }
+  },
+  tooltip: {
+    theme: "dark",
+    x: {
+      formatter: function (val) {
+        return moment(new Date(val)).format("HH:mm:ss");
+      }
+    }
+  },
+  yaxis: {
+    decimalsInFloat: 2,
+    opposite: true,
+    labels: {
+      offsetX: -10
+    }
+  }
+};
+
+var trigoStrength = 3;
+var iteration = 11;
+
+function getRandom() {
+  var i = iteration;
+  return (
+    (Math.sin(i / trigoStrength) * (i / trigoStrength) +
+      i / trigoStrength +
+      1) *
+    (trigoStrength * 2)
+  );
+}
+
+function getRangeRandom(yrange) {
+  return Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+}
+
+function generateMinuteWiseTimeSeries(baseval, count, yrange) {
+  var i = 0;
+  var series = [];
+  while (i < count) {
+    var x = baseval;
+    var y =
+      (Math.sin(i / trigoStrength) * (i / trigoStrength) +
+        i / trigoStrength +
+        1) *
+      (trigoStrength * 2);
+
+    series.push([x, y]);
+    baseval += 300000;
+    i++;
+  }
+  return series;
+}
+
+function getNewData(baseval, yrange) {
+  var newTime = baseval + 300000;
+  return {
+    x: newTime,
+    y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
+  };
+}
+
+var optionsColumn = {
+  chart: {
+    height: 350,
+    type: "bar",
+    animations: {
+      enabled: false
+    },
+    events: {
+      animationEnd: function (chartCtx) {
+        const newData = chartCtx.w.config.series[0].data.slice();
+        newData.shift();
+        window.setTimeout(function () {
+          chartCtx.updateOptions(
+            {
+              series: [
+                {
+                  data: newData
+                }
+              ],
+              xaxis: {
+                min: chartCtx.minX,
+                max: chartCtx.maxX
+              },
+              subtitle: {
+                text:
+                  parseInt(getRangeRandom({ min: 1, max: 20 })).toString() + "%"
+              }
+            },
+            false,
+            false
+          );
+        }, 300);
+      }
+    },
+    toolbar: {
+      show: false
+    },
+    zoom: {
+      enabled: false
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    width: 0
+  },
+  series: [
+    {
+      name: "Load Average",
+      data: generateMinuteWiseTimeSeries(
+        new Date("12/12/2016 00:20:00").getTime(),
+        12,
+        {
+          min: 10,
+          max: 110
+        }
+      )
+    }
+  ],
+  title: {
+    text: "Load Average",
+    align: "left",
+    style: {
+      fontSize: "12px"
+    }
+  },
+  subtitle: {
+    text: "20%",
+    floating: true,
+    align: "right",
+    offsetY: 0,
+    style: {
+      fontSize: "22px"
+    }
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      type: "vertical",
+      shadeIntensity: 0.5,
+      inverseColors: false,
+      opacityFrom: 1,
+      opacityTo: 0.8,
+      stops: [0, 100]
+    }
+  },
+  xaxis: {
+    type: "datetime",
+    range: 2700000
+  },
+  legend: {
+    show: true
+  }
+};
+
+var chartColumn = new ApexCharts(
+  document.querySelector("#columnchart"),
+  optionsColumn
+);
+chartColumn.render();
+
+var optionsLine = {
+  chart: {
+    height: 350,
+    type: "line",
+    stacked: true,
+    animations: {
+      enabled: true,
+      easing: "linear",
+      dynamicAnimation: {
+        speed: 1000
+      }
+    },
+    dropShadow: {
+      enabled: true,
+      opacity: 0.3,
+      blur: 5,
+      left: -7,
+      top: 22
+    },
+    events: {
+      animationEnd: function (chartCtx) {
+        const newData1 = chartCtx.w.config.series[0].data.slice();
+        newData1.shift();
+        const newData2 = chartCtx.w.config.series[1].data.slice();
+        newData2.shift();
+        window.setTimeout(function () {
+          chartCtx.updateOptions(
+            {
+              series: [
+                {
+                  data: newData1
+                },
+                {
+                  data: newData2
+                }
+              ],
+              subtitle: {
+                text: parseInt(getRandom() * Math.random()).toString()
+              }
+            },
+            false,
+            false
+          );
+        }, 300);
+      }
+    },
+    toolbar: {
+      show: false
+    },
+    zoom: {
+      enabled: false
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    curve: "straight",
+    width: 5
+  },
+  grid: {
+    padding: {
+      left: 0,
+      right: 0
+    }
+  },
+  markers: {
+    size: 0,
+    hover: {
+      size: 0
+    }
+  },
+  series: [
+    {
+      name: "Running",
+      data: generateMinuteWiseTimeSeries(
+        new Date("12/12/2016 00:20:00").getTime(),
+        12,
+        {
+          min: 30,
+          max: 110
+        }
+      )
+    },
+    {
+      name: "Waiting",
+      data: generateMinuteWiseTimeSeries(
+        new Date("12/12/2016 00:20:00").getTime(),
+        12,
+        {
+          min: 30,
+          max: 110
+        }
+      )
+    }
+  ],
+  xaxis: {
+    type: "datetime",
+    range: 2700000
+  },
+  title: {
+    text: "Processes",
+    align: "left",
+    style: {
+      fontSize: "12px"
+    }
+  },
+  subtitle: {
+    text: "20",
+    floating: true,
+    align: "right",
+    offsetY: 0,
+    style: {
+      fontSize: "22px"
+    }
+  },
+  legend: {
+    show: true,
+    floating: true,
+    horizontalAlign: "left",
+    onItemClick: {
+      toggleDataSeries: false
+    },
+    position: "top",
+    offsetY: -33,
+    offsetX: 60
+  }
+};
+
+var chartLine = new ApexCharts(
+  document.querySelector("#linechart"),
+  optionsLine
+);
+chartLine.render();
+
+var optionsCircle = {
+  chart: {
+    type: "radialBar",
+    height: 250,
+    offsetX: 0
+  },
+  plotOptions: {
+    radialBar: {
+      inverseOrder: false,
+      hollow: {
+        margin: 5,
+        size: "48%",
+        background: "transparent"
+      },
+      track: {
+        show: true,
+        background: "#40475D",
+        strokeWidth: "10%",
+        opacity: 1,
+        margin: 3 // margin is in pixels
+      }
+    }
+  },
+  series: [71, 63],
+  labels: ["Device 1", "Device 2"],
+  legend: {
+    show: true,
+    position: "left",
+    offsetX: -30,
+    offsetY: -10,
+    formatter: function (val, opts) {
+      return val + " - " + opts.w.globals.series[opts.seriesIndex] + "%";
+    }
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      type: "horizontal",
+      shadeIntensity: 0.5,
+      inverseColors: true,
+      opacityFrom: 1,
+      opacityTo: 1,
+      stops: [0, 100]
+    }
+  }
+};
+
+var chartCircle = new ApexCharts(
+  document.querySelector("#circlechart"),
+  optionsCircle
+);
+chartCircle.render();
+
+var optionsProgress1 = {
+  chart: {
+    height: 70,
+    type: "bar",
+    stacked: true,
+    sparkline: {
+      enabled: true
+    }
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: "20%",
+      colors: {
+        backgroundBarColors: ["#40475D"]
+      }
+    }
+  },
+  stroke: {
+    width: 0
+  },
+  series: [
+    {
+      name: "Process 1",
+      data: [44]
+    }
+  ],
+  title: {
+    floating: true,
+    offsetX: -10,
+    offsetY: 5,
+    text: "Process 1"
+  },
+  subtitle: {
+    floating: true,
+    align: "right",
+    offsetY: 0,
+    text: "44%",
+    style: {
+      fontSize: "20px"
+    }
+  },
+  tooltip: {
+    enabled: false
+  },
+  xaxis: {
+    categories: ["Process 1"]
+  },
+  yaxis: {
+    max: 100
+  },
+  fill: {
+    opacity: 1
+  }
+};
+
+var chartProgress1 = new ApexCharts(
+  document.querySelector("#progress1"),
+  optionsProgress1
+);
+chartProgress1.render();
+
+var optionsProgress2 = {
+  chart: {
+    height: 70,
+    type: "bar",
+    stacked: true,
+    sparkline: {
+      enabled: true
+    }
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: "20%",
+      colors: {
+        backgroundBarColors: ["#40475D"]
+      }
+    }
+  },
+  colors: ["#17ead9"],
+  stroke: {
+    width: 0
+  },
+  series: [
+    {
+      name: "Process 2",
+      data: [80]
+    }
+  ],
+  title: {
+    floating: true,
+    offsetX: -10,
+    offsetY: 5,
+    text: "Process 2"
+  },
+  subtitle: {
+    floating: true,
+    align: "right",
+    offsetY: 0,
+    text: "80%",
+    style: {
+      fontSize: "20px"
+    }
+  },
+  tooltip: {
+    enabled: false
+  },
+  xaxis: {
+    categories: ["Process 2"]
+  },
+  yaxis: {
+    max: 100
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      inverseColors: false,
+      gradientToColors: ["#6078ea"]
+    }
+  }
+};
+
+var chartProgress2 = new ApexCharts(
+  document.querySelector("#progress2"),
+  optionsProgress2
+);
+chartProgress2.render();
+
+var optionsProgress3 = {
+  chart: {
+    height: 70,
+    type: "bar",
+    stacked: true,
+    sparkline: {
+      enabled: true
+    }
+  },
+  plotOptions: {
+    bar: {
+      horizontal: true,
+      barHeight: "20%",
+      colors: {
+        backgroundBarColors: ["#40475D"]
+      }
+    }
+  },
+  colors: ["#f02fc2"],
+  stroke: {
+    width: 0
+  },
+  series: [
+    {
+      name: "Process 3",
+      data: [74]
+    }
+  ],
+  fill: {
+    type: "gradient",
+    gradient: {
+      gradientToColors: ["#6094ea"]
+    }
+  },
+  title: {
+    floating: true,
+    offsetX: -10,
+    offsetY: 5,
+    text: "Process 3"
+  },
+  subtitle: {
+    floating: true,
+    align: "right",
+    offsetY: 0,
+    text: "74%",
+    style: {
+      fontSize: "20px"
+    }
+  },
+  tooltip: {
+    enabled: false
+  },
+  xaxis: {
+    categories: ["Process 3"]
+  },
+  yaxis: {
+    max: 100
+  }
+};
+
+var chartProgress3 = new ApexCharts(
+  document.querySelector("#progress3"),
+  optionsProgress3
+);
+chartProgress3.render();
+
+window.setInterval(function () {
+  iteration++;
+
+  chartColumn.updateSeries([
+    {
+      data: [
+        ...chartColumn.w.config.series[0].data,
+        [chartColumn.w.globals.maxX + 300000, getRandom()]
+      ]
+    }
+  ]);
+
+  chartLine.updateSeries([
+    {
+      data: [
+        ...chartLine.w.config.series[0].data,
+        [chartLine.w.globals.maxX + 300000, getRandom()]
+      ]
+    },
+    {
+      data: [
+        ...chartLine.w.config.series[1].data,
+        [chartLine.w.globals.maxX + 300000, getRandom()]
+      ]
+    }
+  ]);
+
+  chartCircle.updateSeries([
+    getRangeRandom({ min: 10, max: 100 }),
+    getRangeRandom({ min: 10, max: 100 })
+  ]);
+
+  var p1Data = getRangeRandom({ min: 10, max: 100 });
+  chartProgress1.updateOptions({
+    series: [
+      {
+        data: [p1Data]
+      }
+    ],
+    subtitle: {
+      text: p1Data + "%"
+    }
+  });
+
+  var p2Data = getRangeRandom({ min: 10, max: 100 });
+  chartProgress2.updateOptions({
+    series: [
+      {
+        data: [p2Data]
+      }
+    ],
+    subtitle: {
+      text: p2Data + "%"
+    }
+  });
+
+  var p3Data = getRangeRandom({ min: 10, max: 100 });
+  chartProgress3.updateOptions({
+    series: [
+      {
+        data: [p3Data]
+      }
+    ],
+    subtitle: {
+      text: p3Data + "%"
+    }
+  });
+}, 3000);
+
+
+</script>
 @endsection
