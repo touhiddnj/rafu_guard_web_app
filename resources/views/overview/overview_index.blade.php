@@ -797,7 +797,7 @@
                
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+82</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
@@ -812,7 +812,7 @@
 
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+80</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
@@ -827,7 +827,7 @@
 
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+75</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
@@ -841,7 +841,7 @@
                 <small class="text-muted d-block mb-1">Threat Intelligence</small>
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+70</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
@@ -856,7 +856,7 @@
 
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+80</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
@@ -870,7 +870,7 @@
                 <h6 class="mb-0">CrowdStrike</h6>
               </div>
               <div class="user-progress d-flex align-items-center gap-1">
-                <h6 class="mb-0">+65</h6> <span class="text-muted">★</span>
+                <h6 title="Connected" class="mb-0"><i class="bx bxs-check-circle text-success"></i></h6> 
               </div>
             </div>
           </li>
