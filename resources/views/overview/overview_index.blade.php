@@ -357,8 +357,8 @@
 
 
   .box .apexcharts-xaxistooltip {
-  background: #1B213B;
-  color: #fff;
+  background: #fff;
+  color: #000;
 }
 
 .content-area {
@@ -714,7 +714,7 @@
                 <small class="text-muted">Malware, Spyware,  Trojan</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold">---</small>
+                <small id="total-phishy" class="fw-semibold">---</small>
               </div>
             </div>
           </li>
@@ -731,7 +731,7 @@
                 <small class="text-muted">Unknown vendor, Riskware</small>
               </div>
               <div class="user-progress">
-                <small class="fw-semibold">---</small>
+                <small id="total-malicious" class="fw-semibold">---</small>
               </div>
             </div>
           </li>
@@ -760,7 +760,7 @@
     <div class="card h-100">
       <div class="card-header">
         <div class="card-title mb-0">
-          <h5 class="m-0 me-2">Process</h5>
+          <h5 class="m-0 me-2">Analysis</h5>
           {{-- <small class="text-muted">42.82k Total Scans</small> --}}
         </div>
         {{-- <ul class="nav nav-pills" role="tablist">
@@ -1073,7 +1073,7 @@ borderColor = config.colors.borderColor;
     }
   },
   tooltip: {
-    theme: "dark",
+    theme: "light",
     x: {
       formatter: function (val) {
         return moment(new Date(val)).format("HH:mm:ss");
