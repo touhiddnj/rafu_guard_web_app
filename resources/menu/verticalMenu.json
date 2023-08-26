@@ -54,24 +54,7 @@
       "name": "Extensions",
       "icon": "menu-icon tf-icons bx bx-extension",
       "slug": "extensions"
-    },
-    {
-      "url": "/Notifications",
-      "name": "Notifications",
-      "icon": "menu-icon tf-icons bx bx-bell",
-      "slug": "notifications"
-    },
-    {
-      "url": "/Identity",
-      "name": "Identity",
-      "icon": "menu-icon tf-icons bx bx-user-check",
-      "slug": "identity"
-    },
-    {
-      "url": "/Hijackers",
-      "name": "Hijackers",
-      "icon": "menu-icon tf-icons bx bx-dizzy",
-      "slug": "hijackers"
     }
+
   ]
 }
