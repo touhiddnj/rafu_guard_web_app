@@ -1336,7 +1336,7 @@ var optionsLine = {
     range: 2700000
   },
   title: {
-    text: "Processes",
+    text: "",
     align: "left",
     style: {
       fontSize: "12px"
