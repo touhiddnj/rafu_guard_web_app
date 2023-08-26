@@ -368,7 +368,7 @@
 
 .box {
   /* background-color: #262D47; */
-  padding: 25px 25px; 
+  padding: 0px 5px; 
   border-radius: 4px; 
 }
 
@@ -1248,7 +1248,7 @@ var optionsLine = {
       }
     },
     dropShadow: {
-      enabled: true,
+      enabled: false,
       opacity: 0.3,
       blur: 5,
       left: -7,
@@ -1292,8 +1292,9 @@ var optionsLine = {
     enabled: false
   },
   stroke: {
+    colors: ['#3a2d63','#039bec'],
     curve: "straight",
-    width: 5
+    width: 2
   },
   grid: {
     padding: {
@@ -1352,7 +1353,7 @@ var optionsLine = {
     }
   },
   legend: {
-    show: true,
+    show: false,
     floating: true,
     horizontalAlign: "left",
     onItemClick: {
@@ -1407,7 +1408,7 @@ var optionsCircle = {
   fill: {
     type: "gradient",
     gradient: {
-      shade: "dark",
+      shade: "light",
       type: "horizontal",
       shadeIntensity: 0.5,
       inverseColors: true,
