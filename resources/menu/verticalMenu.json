@@ -1,7 +1,7 @@
 {
   "menu": [
     {
-      "url": "/overview",
+      "url": "/",
       "name": "Overview",
       "icon": "menu-icon tf-icons bx bx-extension",
       "slug": "overview"
