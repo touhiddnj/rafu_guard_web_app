@@ -760,7 +760,7 @@
     <div class="card h-100">
       <div class="card-header">
         <div class="card-title mb-0">
-          <h5 class="m-0 me-2">Analysis</h5>
+          <h5 class="m-0 me-2">App Analysis</h5>
           {{-- <small class="text-muted">42.82k Total Scans</small> --}}
         </div>
         {{-- <ul class="nav nav-pills" role="tablist">
