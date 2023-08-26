@@ -980,8 +980,8 @@ borderColor = config.colors.borderColor;
         width: 130,
         type: 'donut'
       },
-      labels: ['Application', 'Fishy', 'Malicious'],
-      series: [85, 15, 5],
+      labels: ['Application', 'Phishy', 'Malicious','Other'],
+      series: [1, 1, 1,98],
       colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
       stroke: {
         width: 5,
@@ -1026,9 +1026,9 @@ borderColor = config.colors.borderColor;
                 show: true,
                 fontSize: '0.8125rem',
                 color: axisColor,
-                label: 'Application',
+                label: 'Other',
                 formatter: function (w) {
-                  return '85%';
+                  return '98%';
                 }
               }
             }
