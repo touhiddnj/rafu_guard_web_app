@@ -368,7 +368,7 @@
 
 .box {
   /* background-color: #262D47; */
-  padding: 0px 5px; 
+  padding: 0px 10px; 
   border-radius: 4px; 
 }
 

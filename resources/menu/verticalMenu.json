@@ -37,12 +37,6 @@
       "slug": "disk-information"
     },
     {
-      "url": "/other-security",
-      "name": "Other Security",
-      "icon": "menu-icon tf-icons bx bx-check-shield",
-      "slug": "other-security"
-    },
-    {
       "url": "/CustomBlocking",
       "name": "Custom Blocking",
       "icon": "menu-icon tf-icons bx bx-block",
@@ -55,6 +49,5 @@
       "icon": "menu-icon tf-icons bx bx-extension",
       "slug": "extensions"
     }
-
   ]
 }
