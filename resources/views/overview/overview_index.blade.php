@@ -694,7 +694,7 @@
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
                 <h6 class="mb-0">Application</h6>
-                <small class="text-muted">exe,msi</small>
+                <small class="text-muted">Exe, Msi, Etc</small>
               </div>
               <div class="user-progress">
                 <small class="fw-semibold" id="total-app-count">---</small>
@@ -710,8 +710,8 @@
             </div>
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
-                <h6 class="mb-0">Fishy</h6>
-                <small class="text-muted">Malware, Spyware,  Trojan</small>
+                <h6 class="mb-0">Phishy</h6>
+                <small class="text-muted">Malware, Spyware, Etc</small>
               </div>
               <div class="user-progress">
                 <small id="total-phishy" class="fw-semibold">---</small>
@@ -728,7 +728,7 @@
             <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
               <div class="me-2">
                 <h6 class="mb-0">Malicious</h6>
-                <small class="text-muted">Unknown vendor, Riskware</small>
+                <small class="text-muted">Unknown, Riskware, Etc</small>
               </div>
               <div class="user-progress">
                 <small id="total-malicious" class="fw-semibold">---</small>
@@ -981,8 +981,8 @@ borderColor = config.colors.borderColor;
         type: 'donut'
       },
       labels: ['Application', 'Phishy', 'Malicious','Other'],
-      series: [1, 1, 1,98],
-      colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
+      series: [10, 20, 15,75],
+      colors: [config.colors.primary, config.colors.secondary, '#0b4a6b', '#757575'],
       stroke: {
         width: 5,
         colors: cardColor
@@ -1040,6 +1040,12 @@ borderColor = config.colors.borderColor;
     const statisticsChart2 = new ApexCharts(fileStatisticsChart, fileChartConfig);
     statisticsChart2.render();
   }
+
+  /* fileStatisticsChart end */
+
+
+
+
 
   window.Apex = {
   chart: {
@@ -1272,7 +1278,7 @@ var optionsLine = {
                 }
               ],
               subtitle: {
-                text: parseInt(getRandom() * Math.random()).toString()
+                text: ''
               }
             },
             false,
@@ -1689,7 +1695,14 @@ window.setInterval(function () {
   });
 }, 3000);
 
+$(document).ready(function(){
+  
+window.addEventListener('fromContentScript', function(event) {
+    console.log('Received data:', event.detail);
+});
 
+
+});
 
 
 </script>
