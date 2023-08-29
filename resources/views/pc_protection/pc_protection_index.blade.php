@@ -372,6 +372,10 @@
         margin-top: 15px;
         max-width: 60px;
 }
+
+
+
+
     </style>
 
 
@@ -440,8 +444,12 @@
       
         
     </div>
+    <div style="clear: both;">
+      <button style="max-width: 100px; float: right" class="btn btn-secondary inline pull-right btn-xs">Print</button>
+    </div>
+    <div style="clear: both;" class="mb-2"></div>
+    <div class="card p-2">
 
-    <div class="card">
       <div id="scan-log" class="table-responsive text-nowrap ">
     
         <table id="detection-log" class="table table-sm">
