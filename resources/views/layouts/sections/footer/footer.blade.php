@@ -120,7 +120,7 @@ if ($accessToken && !$accessToken->expired()) {
 	  {{ date("Y") }}
 
 
-      , made with ❤️ by <a href="https://rafusoft.com" target="_blank" class="footer-link fw-bolder">Rafusoft</a>
+      , Rafu Guard by <a href="https://rafusoft.com" target="_blank" class="footer-link ">Rafusoft</a>
     </div>
     <div>
 
