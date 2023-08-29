@@ -973,7 +973,7 @@ axisColor = config.colors.axisColor;
 borderColor = config.colors.borderColor;
    // Order Statistics Chart
   // --------------------------------------------------------------------
-  const fileStatisticsChart = document.querySelector('#fileStatisticsChart'),
+  var fileStatisticsChart = document.querySelector('#fileStatisticsChart'),
     fileChartConfig = {
       chart: {
         height: 165,
@@ -981,7 +981,7 @@ borderColor = config.colors.borderColor;
         type: 'donut'
       },
       labels: ['Application', 'Phishy', 'Malicious','Other'],
-      series: [10, 20, 15,75],
+      series: [0, 0, 0,0],
       colors: [config.colors.primary, config.colors.secondary, '#0b4a6b', '#757575'],
       stroke: {
         width: 5,
@@ -1026,9 +1026,9 @@ borderColor = config.colors.borderColor;
                 show: true,
                 fontSize: '0.8125rem',
                 color: axisColor,
-                label: 'Other',
+                label: 'Loading',
                 formatter: function (w) {
-                  return '98%';
+                  return '0%';
                 }
               }
             }
@@ -1036,8 +1036,9 @@ borderColor = config.colors.borderColor;
         }
       }
     };
+    var statisticsChart2 = null;;
   if (typeof fileStatisticsChart !== undefined && fileStatisticsChart !== null) {
-    const statisticsChart2 = new ApexCharts(fileStatisticsChart, fileChartConfig);
+     statisticsChart2 = new ApexCharts(fileStatisticsChart, fileChartConfig);
     statisticsChart2.render();
   }
 
@@ -1699,6 +1700,18 @@ $(document).ready(function(){
   
 window.addEventListener('fromContentScript', function(event) {
     console.log('Received data:', event.detail);
+    fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
+fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
+  return event.detail.fileStatSeries[3];
+};
+
+statisticsChart2.updateOptions(fileChartConfig);
+    statisticsChart2.updateSeries(event.detail.fileStatSeries);
+
+
+
+
+
 });
 
 
