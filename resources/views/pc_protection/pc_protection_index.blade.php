@@ -373,6 +373,11 @@
         max-width: 60px;
 }
 
+.square-box:hover{
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+  cursor:pointer;
+}
+
 #detection-log tbody tr td:nth-child(1){
   color: red;
 }
