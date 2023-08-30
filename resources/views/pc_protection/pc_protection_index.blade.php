@@ -378,19 +378,31 @@
   cursor:pointer;
 }
 
-#detection-log tbody tr td:nth-child(1){
-  color: red;
+#detection-log tbody{
+
 }
 
 #detection-log tbody tr td:nth-child(2){
-  color: brown;
+  color: red;
 }
 
 #detection-log tbody tr td:nth-child(3){
+  color: brown;
+}
+
+#detection-log tbody tr td:nth-child(4){
   color: blue;
 }
 
-
+#current-scan-info{
+  min-height: 80px;
+  max-height: 80px;
+ 
+  overflow: hidden;
+  /* color: #ffef0a; */
+  /* border: 3px solid #000000; */
+  /* background-color: #0f0f0f!important; */
+}
 
 
 
@@ -405,25 +417,34 @@
         <div class="row">
             <div class="col-md-2"><img style="max-width: 128px;" src="/icons/custom/rafuguard_ok.svg"></div>
             <div class="col-md-6">
-                <h3 style="color: #22a31b;">You Are Protected</h3>
+                <h3 id="protection-message" style="color: red;">Protection is OFF !</h3>
                 <div style="display: flex;">
                     <div style="flex: 1;  ">
                       Protection:
                     </div>
                     <div style="flex: 1; ">
-                        <span style="color: #22a31b">Yes</span>
+                        <span id="protection-status" style="color: red">No</span>
                     </div>
                   </div>
                   <div style="display: flex;">
                     <div style="flex: 1;  ">
-                      Last Scan: 
+                      Instant Scan: 
                     </div>
                     <div style="flex: 1;  ">
-                        <span id="last-scan-time" style="color:#22a31b">---</span>
+                        <span id="last-scan-time" style="color:#006700">---</span>
+                    </div>
+                  </div>
+                  <div style="display: flex;">
+                    <div style="flex: 1;  ">
+                      Full Scan: 
+                    </div>
+                    <div style="flex: 1;  ">
+                        <span id="full-scan-time" style="color:#22a31b">---</span>
                     </div>
                   </div>
             </div>
         </div>
+
 
         <div class="row mt-5">
             <div class="col-md-6 offset-md-2">
@@ -460,13 +481,25 @@
             </div>
           </div>
 
+          <div class="row mt-2">
+            <div class="col-md-12 ">
+              <div id="current-scan-info" class="m-2">
+          
+  <strong style="color: #4A2B8C">Scanning:</strong><br/> C:\Windows\WinSxS\amd64_dual_wvmbusr.inf_31bf3856ad364e35_10.0.22621.1702_none_d2b715197bad6fc2\vmbusr.sys
+  <br />
+  Result: Clean         
+                
+              </div>
+            </div>
+          </div>
+
       
         
     </div>
-    <div style="clear: both;">
+{{--     <div style="clear: both;">
       <button style="max-width: 100px; float: right" class="btn btn-secondary inline pull-right btn-xs">Print</button>
     </div>
-    <div style="clear: both;" class="mb-2"></div>
+    <div style="clear: both;" class="mb-2"></div> --}}
     <div class="card p-2">
 
       <div id="scan-log" class="table-responsive text-nowrap ">
@@ -474,7 +507,8 @@
         <table id="detection-log" class="table table-sm">
           <thead>
             <tr>
-              <th>Threat</th>
+              <th>Time</th>
+              <th>Virus & Threat</th>
               <th>File Name</th>
               <th>Action</th>
               <th>Location</th>
