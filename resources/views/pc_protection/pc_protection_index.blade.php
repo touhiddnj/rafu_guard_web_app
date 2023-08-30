@@ -373,6 +373,20 @@
         max-width: 60px;
 }
 
+#detection-log tbody tr td:nth-child(1){
+  color: red;
+}
+
+#detection-log tbody tr td:nth-child(2){
+  color: brown;
+}
+
+#detection-log tbody tr td:nth-child(3){
+  color: blue;
+}
+
+
+
 
 
 
