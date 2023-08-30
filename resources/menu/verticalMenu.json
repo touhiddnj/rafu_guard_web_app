@@ -18,12 +18,7 @@
       "icon": "menu-icon tf-icons bx bx-check-shield",
       "slug": "pc-protection"
     },
-    {
-      "url": "/scam-shield",
-      "name": "Scam Shield",
-      "icon": "menu-icon tf-icons bx bx-check-shield",
-      "slug": "scam-shield"
-    },
+
     {
       "url": "/firewall-config",
       "name": "Firewall Config",

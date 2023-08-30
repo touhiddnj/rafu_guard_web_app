@@ -403,10 +403,10 @@
                 <h3 style="color: #22a31b;">You Are Protected</h3>
                 <div style="display: flex;">
                     <div style="flex: 1;  ">
-                      Protection Update:
+                      Protection:
                     </div>
                     <div style="flex: 1; ">
-                        <span style="color: #22a31b">Current</span>
+                        <span style="color: #22a31b">Yes</span>
                     </div>
                   </div>
                   <div style="display: flex;">
@@ -414,7 +414,7 @@
                       Last Scan: 
                     </div>
                     <div style="flex: 1;  ">
-                        <span style="color:#22a31b">3 minuets ago</span>
+                        <span style="color:#22a31b">Running</span>
                     </div>
                   </div>
             </div>
@@ -427,14 +427,14 @@
                       <!-- First square box -->
                       <div class="square-box">
                         <img  src="/icons/custom/rafuguard_scan.svg">
-                        <p>Run Scans</p>
+                        <p>Scan</p>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <!-- Second square box -->
                       <div class="square-box">
                         <img  src="/icons/custom/rafuguard_update.svg">
-                        <p>LiveUpdate</p>
+                        <p>Update</p>
                       </div>
                     </div>
                     <div class="col-md-3">
@@ -543,6 +543,9 @@ window.addEventListener('message', event => {
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+
+
+        
       
 </script>
 @endsection
