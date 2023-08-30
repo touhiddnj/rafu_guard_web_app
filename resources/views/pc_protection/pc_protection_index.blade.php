@@ -419,7 +419,7 @@
                       Last Scan: 
                     </div>
                     <div style="flex: 1;  ">
-                        <span style="color:#22a31b">Running</span>
+                        <span id="last-scan-time" style="color:#22a31b">Running</span>
                     </div>
                   </div>
             </div>
