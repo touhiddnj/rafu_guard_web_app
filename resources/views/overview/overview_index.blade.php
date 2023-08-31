@@ -397,7 +397,7 @@
     </style>
   
 <div class="row">
-  <div class="col-lg-8 mb-4 order-0">
+  <div class="col-lg-6 mb-4 order-0">
     <div class="card p-4" >
       <div class="container">
         <div class="row align-items-center" style="height:auto">
@@ -406,48 +406,37 @@
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
           <div class="col-md-10 text-center mt-3">
-            <h3 id="agent-status" class="">Agent is not found!</h3>
-            <a target="_blank" href="Installer.msi">Download Agent</a>
+            <h3 style="color: #ff0000" id="agent-status" class="">Agent is not found!</h3>
+            <div id="agent-version"></div>
+            {{-- <a target="_blank" href="Installer.msi">Download Agent</a> --}}
           </div>
         </div>
       </div>
       
     </div>
   </div>
-  <div class="col-lg-4 col-md-4 order-1">
-    <div class="card" style="padding: 31px 10px 31px 10px">
+
+  <div class="col-lg-6 mb-4 order-0">
+    <div class="card p-4" >
       <div class="container">
-        <div class="row align-items-center " style="height: auto">
-          <div class="col-md-4 text-center">
-           <img style="max-width: 80px" src="/icons/custom/rafuguard_ai_engine.svg"/>
+        <div class="row align-items-center" style="height:auto">
+          <div class="col-md-2 text-center">
+           <img id="agent-status-img" style="max-width: 80px;" src="/icons/custom/rafuguard_Agent_deactive_logo.svg"/>
             {{-- <img src="https://placehold.co/600x400"  alt="Your Image" style="max-width: 80px;"> --}}
           </div>
-          <div class="col-md-8 text-center">
-            <div style="display: flex; flex-direction: row; margin-top: 20px;">
-              <div style="flex: 80%; "> <!-- First column with 80% width -->
-                  <!-- Content for the first column -->
-                  <h3 class="" style="">AI Engine</h3>
-              </div>
-              <div style="flex: 20%; "> <!-- Second column with 20% width -->
-                  <!-- Content for the second column -->
-                  <button style=" float: right; margin-right: -20px; margin-top: 3px;" type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
-                    <div class="handle"></div>
-                  </button>
-              </div>
-          </div>
-            <div class="col-xs-8">
-             
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-          
+          <div class="col-md-10 text-center mt-3">
+            <h3 style="color: #ff0000" id="ext-status" class="">Extension not found!</h3>
+            <div id="agent-version"></div>
+            {{-- <a target="_blank" href="Installer.msi">Download Agent</a> --}}
           </div>
         </div>
       </div>
       
     </div>
   </div>
+
+
+
 
 
 </div>
@@ -510,7 +499,7 @@
               <h3 class="card-title mb-2  fs-5">Malware and Harmful Objects Protection</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm  text-right agent-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
@@ -579,7 +568,7 @@
               <h3 class="card-title mb-2  fs-5">Shielding from latest phishing technique</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm text-right agent-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
@@ -611,10 +600,10 @@
           <span class="fs-4 fw-semibold d-block mb-1 ">Disk Information</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2  fs-5">Malware and Harmful Objects Protection</h3>
+              <h3 class="card-title mb-2  fs-5">Disk information with visualization</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm  text-right agent-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
@@ -630,35 +619,26 @@
         <div class="card-body">
           <div class="card-title align-items-start justify-content-between">
             <div class="flex-shrink-0">
-              <img src="\icons\custom\rafuguard_others security_logo.svg" alt="chart success" class="rounded" style="max-width:  80px;">
+              <img src="\icons\custom\rafuguard_ai_engine.svg" alt="chart success" class="rounded" style="max-width:  80px; max-height: 60px;">
             </div>
-{{--             <div class="dropdown">
-              <button class="btn p-0" type="button" id="cardOpt3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="bx bx-dots-vertical-rounded"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-              </div>
-            </div> --}}
+
           </div>
-          <span class="fs-4 fw-semibold d-block mb-1 ">Other Security</span>
+          <span class="fs-4 fw-semibold d-block mb-1 ">AI + CLAM Engine</span>
           <div style="display: flex">
             <div style="flex: 80%;">
-              <h3 class="card-title mb-2  fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
+              <h3 class="card-title mb-2  fs-5">Complex engine combination.</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm  text-right agent-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
           </div>
          
-          {{-- <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small> --}}
+         
         </div>
       </div>
     </div>
-
 
 
 
@@ -1697,6 +1677,10 @@ window.setInterval(function () {
 }, 3000);
 
 $(document).ready(function(){
+
+  let agentButtons = $(".agent-depend");
+      agentButtons.removeClass("active");
+      agentButtons.attr("aria-pressed", "false");
   
 window.addEventListener('fromContentScript', function(event) {
     console.log('Received data:', event.detail);
