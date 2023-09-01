@@ -1676,21 +1676,35 @@ window.setInterval(function () {
   });
 }, 3000);
 
+var extStatusSelector = document.getElementById('ext-status');
+// Usage
+let lastResponse = new Date('2023-09-01T10:00:00Z');  // Replace this with your old time value
 $(document).ready(function(){
 
   let agentButtons = $(".agent-depend");
       agentButtons.removeClass("active");
       agentButtons.attr("aria-pressed", "false");
   
-window.addEventListener('fromContentScript', function(event) {
-    console.log('Received data:', event.detail);
-    fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
-fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
-  return event.detail.fileStatSeries[3];
-};
+      window.addEventListener('fromContentScript', function(event) {
+        lastResponse = new Date();
+        extStatusSelector.style.color = '#006700';
+        extStatusSelector.textContent = "Extension Active";
+          console.log('Received data:', event.detail);
+          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
+      fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
+        return event.detail.fileStatSeries[3];
+      };
 
-statisticsChart2.updateOptions(fileChartConfig);
-    statisticsChart2.updateSeries(event.detail.fileStatSeries);
+      statisticsChart2.updateOptions(fileChartConfig);
+          statisticsChart2.updateSeries(event.detail.fileStatSeries);
+
+
+
+
+
+    });
+
+
 
 
 
@@ -1699,7 +1713,124 @@ statisticsChart2.updateOptions(fileChartConfig);
 });
 
 
-});
+
+
+setInterval(function(){
+          console.log("Interval is working...");
+          const currentTime = new Date();
+          if(isOlderByTenSeconds(lastResponse, currentTime)){
+            extStatusSelector.style.color = '#ff0000';
+                  extStatusSelector.textContent = "Extension not found!";
+          }
+
+          // Usage example:
+          const wsURL = 'ws://127.0.0.1:8090/';
+
+          checkWebSocketConnection(wsURL)
+              .then(() => {
+                  console.log('WebSocket is connectable');
+                  let status = document.getElementById("agent-status");
+                let img = document.getElementById("agent-status-img");
+                // let version = agentVersion.split(".").slice(0, 2).join(".");
+                let version = '';
+                status.style.color = "#006700";
+                status.textContent = "Agent is connected: " + version;
+                img.setAttribute("src", "/icons/custom/rafuguard_Agent_Active_logo.svg");
+
+                console.log("agent is connected");
+
+                let agentButtons = $(".agent-depend");
+                agentButtons.addClass("active");
+                agentButtons.attr("aria-pressed", "true");
+              })
+              .catch(err => {
+                  console.error('WebSocket is not connectable:', err);
+                  let status = document.getElementById("agent-status");
+                let img = document.getElementById("agent-status-img");
+                status.style.color = "#FF0000";
+                status.textContent = "Agent is not found!";
+                img.setAttribute(
+                  "src",
+                  "/icons/custom/rafuguard_Agent_deactive_logo.svg"
+                );
+              });
+
+
+}, 3000);
+
+
+
+function isOlderByTenSeconds(oldTime, currentTime) {
+    let differenceInSeconds = (currentTime - oldTime) / 1000;
+
+    if (differenceInSeconds > 10) {
+        console.log("The old time is more than 10 seconds older than the current time.");
+        return true;
+    } else {
+        console.log("The old time is within the last 10 seconds or is in the future compared to the current time.");
+        return false;
+    }
+}
+
+function checkWebSocketConnection(wsURL, timeout = 5000) {
+    return new Promise((resolve, reject) => {
+        const socket = new WebSocket(wsURL);
+        
+        const timeoutId = setTimeout(() => {
+            socket.close();
+            reject(new Error('Connection timeout'));
+        }, timeout);
+
+        socket.onopen = () => {
+            clearTimeout(timeoutId);
+            socket.close();
+            resolve(true);
+        };
+
+        socket.onerror = (err) => {
+            clearTimeout(timeoutId);
+            reject(err);
+        };
+    });
+}
+
+
+
+function agentConnector() {
+  // Create a WebSocket connection
+  const socket = new WebSocket("ws://127.0.0.1:8090/");
+
+  // Connection opened
+  socket.addEventListener("open", (event) => {
+    console.log("WebSocket connection opened:", event);
+
+    // Send a message to the server once connected
+    socket.send("Hello Server!");
+  });
+
+  // Listen for messages from the server
+  socket.addEventListener("message", (event) => {
+    console.log("Message from server:", event.data);
+  });
+
+  // Handle any errors that occur.
+  socket.addEventListener("error", (error) => {
+    console.error("WebSocket Error:", error);
+  });
+
+  // Listen for the WebSocket connection to close.
+  socket.addEventListener("close", (event) => {
+    if (event.wasClean) {
+      console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`);
+    } else {
+      console.warn("Connection died");
+    }
+  });
+
+  // Close the WebSocket connection when done.
+  // socket.close();
+}
+
 
 
 </script>
