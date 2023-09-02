@@ -1,8 +1,7 @@
 @php
 $containerNav = $containerNav ?? 'container-fluid';
 $navbarDetached = ($navbarDetached ?? '');
-
-dd(Auth::user());
+$userInfo = Auth::user();
 @endphp
 <style>
   .app-brand-text.demo{
@@ -73,8 +72,8 @@ dd(Auth::user());
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block">John Doe</span>
-                      <small class="text-muted">Admin</small>
+                      <span class="fw-semibold d-block">{{ $userInfo->name }}</span>
+                      <small class="text-muted">User</small>
                     </div>
                   </div>
                 </a>
