@@ -35,6 +35,13 @@ class HomeController extends Controller
         return view('overview/overview_index');
     }
 
+
+    public function firewall()
+    {
+        // return view('home');
+        return view('firewall_config/firewall_config_index');
+    }
+
     public function pcProtection()
     {
         // return view('home');

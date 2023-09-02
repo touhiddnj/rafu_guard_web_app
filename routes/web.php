@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () use ($controller_path) {
     Route::get('Extensions', $controller_path . '\HomeController@extensionIndex')->name('extension-index');
     Route::get('Browsing', $controller_path . '\HomeController@browsingIndex')->name('browsing-index');
     Route::get('pc-protection', $controller_path . '\HomeController@pcProtection')->name('pc-security');
+    Route::get('firewall-config', $controller_path . '\HomeController@firewall')->name('firewall-config');
 
     Route::get('custom-blocking/enable-status/{id}', $controller_path . '\HomeController@enableStatus')->name('custom-blocking-enable');
     Route::get('custom-blocking/disable-status/{id}', $controller_path . '\HomeController@disableStatus')->name('custom-blocking-disable');

@@ -381,9 +381,9 @@
 
 
 
-  <div class="row row-cols-md-2 g-4 mb-4" id="driveContainer">
-    <!-- Drive cards will be added here using jQuery -->
-  </div>
+<div class="row">
+<div class="col-md-12"></div>
+</div>
 
 
 @endsection
@@ -392,127 +392,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script>
 
-agentConnector();
-  
-function agentConnector() {
-  const driveContainer = document.getElementById("driveContainer");
-  // Create a WebSocket connection
-  const socket = new WebSocket("ws://127.0.0.1:8090/");
-
-  // Connection opened
-  socket.addEventListener("open", (event) => {
-    console.log("WebSocket connection opened:", event);
-
-    const cmd = { cmd: 'drive-info'};
-
-    // Send a message to the server once connected
-    socket.send(JSON.stringify(cmd));
-  });
-
-  // Listen for messages from the server
-  socket.addEventListener("message", (event) => {
-    console.log("Message from server:", event.data);
-
-    const diskData = JSON.parse(event.data);
-    const driveData = diskData.driveData;
-    console.log(driveData);
-
-    driveData.forEach(drive => {
-      const totalSizeGB = convertToGB(drive.TotalSize);
-  const usedSpaceGB = convertToGB(drive.UsedSpace);
-  const freeSpaceGB = convertToGB(drive.AvailableFreeSpace);
-
-  const usedSpacePercentage = (usedSpaceGB / totalSizeGB) * 100;
-  const freeSpacePercentage = (freeSpaceGB / totalSizeGB) * 100;
-
-
-  console.log(drive);
-  console.log(usedSpaceGB);
-  console.log(freeSpaceGB);
-
-      const cardHTML = `<div class="card">
- 
-
- <div class="card-body">
- 
-   <h5 class="card-title">${drive.Name}</h5>
-    <div class="row mb-1">
-<div class="col-sm-5 drive-info">
-<p class="card-text">Volume Label: ${drive.VolumeLabel}</p>
-   <p class="card-text">Drive Type: ${drive.DriveType}</p>
-   <p class="card-text">Drive Format: ${drive.DriveFormat}</p>
-   <p class="card-text">Total Space: ${drive.TotalSize}</p>
-   <p class="card-text">Used Space: ${drive.UsedSpace}</p>
-   <p class="card-text">Free Space: ${drive.AvailableFreeSpace}</p>
-</div>
-
-<div class="col-sm-7">
-<div id="chart-${drive.Name.replace(/\\|:/g, '-')}"></div>
-</div>
-</div>
-  
-   <div class="progress">
-     <div class="progress-bar bg-warning" role="progressbar" style="width: ${Number(usedSpacePercentage.toFixed(2))}%;" aria-valuenow="${Number(usedSpacePercentage.toFixed(2))}" aria-valuemin="0" aria-valuemax="100">
-       ${Number(usedSpacePercentage.toFixed(2))}%
-     </div>
-   </div>
- </div>
-</div>`;
-
-const cardDiv = document.createElement('div');
-      cardDiv.classList.add('col-md-6', 'mb-3');
-      cardDiv.innerHTML = cardHTML;
-driveContainer.appendChild(cardDiv);
-
- // Create ApexCharts for each card
- const chartOptions = {
-        chart: {
-          type: 'pie',
-        },
-        series: [Number(usedSpacePercentage.toFixed(2)), Number(freeSpacePercentage.toFixed(2))],
-        labels: ['Used Space','Free Space'],
-      };
-
-      const chartId = `chart-${drive.Name.replace(/\\|:/g, '-')}`;
-      const chart = new ApexCharts(document.getElementById(chartId), chartOptions);
-      chart.render();
-      
-    });
-
-  });
-
-  // Handle any errors that occur.
-  socket.addEventListener("error", (error) => {
-    console.error("WebSocket Error:", error);
-  });
-
-  // Listen for the WebSocket connection to close.
-  socket.addEventListener("close", (event) => {
-    if (event.wasClean) {
-      console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`);
-    } else {
-      console.warn("Connection died");
-    }
-  });
-
-  // Close the WebSocket connection when done.
-  // socket.close();
-}
-
-// Helper function to convert sizes to GB
-function convertToGB(sizeWithUnit) {
-  const size = parseFloat(sizeWithUnit);
-  const unit = sizeWithUnit.split(' ')[1];
-  switch (unit) {
-    case 'KB':
-      return size / (1024 * 1024);
-    case 'MB':
-      return size / 1024;
-    case 'GB':
-      return size;
-    default:
-      return 0;
-  }
-}
 </script>
 @endsection
