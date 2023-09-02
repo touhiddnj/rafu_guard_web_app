@@ -1729,19 +1729,7 @@ setInterval(function(){
           checkWebSocketConnection(wsURL)
               .then(() => {
                   console.log('WebSocket is connectable');
-                  let status = document.getElementById("agent-status");
-                let img = document.getElementById("agent-status-img");
-                // let version = agentVersion.split(".").slice(0, 2).join(".");
-                let version = '';
-                status.style.color = "#006700";
-                status.textContent = "Agent is connected: " + version;
-                img.setAttribute("src", "/icons/custom/rafuguard_Agent_Active_logo.svg");
-
-                console.log("agent is connected");
-
-                let agentButtons = $(".agent-depend");
-                agentButtons.addClass("active");
-                agentButtons.attr("aria-pressed", "true");
+  
               })
               .catch(err => {
                   console.error('WebSocket is not connectable:', err);
@@ -1794,7 +1782,7 @@ function checkWebSocketConnection(wsURL, timeout = 5000) {
     });
 }
 
-
+agentConnector();
 
 function agentConnector() {
   // Create a WebSocket connection
@@ -1806,11 +1794,29 @@ function agentConnector() {
 
     // Send a message to the server once connected
     socket.send("Hello Server!");
+    socket.send(JSON.stringify({cmd: 'get-version'}));
   });
 
   // Listen for messages from the server
   socket.addEventListener("message", (event) => {
     console.log("Message from server:", event.data);
+    const response = JSON.parse(event.data);
+    if(response.cmd == 'get-version-response'){
+      let status = document.getElementById("agent-status");
+                let img = document.getElementById("agent-status-img");
+                // let version = agentVersion.split(".").slice(0, 2).join(".");
+                let version = response.totalCount;
+                status.style.color = "#006700";
+                status.textContent = "Agent is connected: " + version;
+                img.setAttribute("src", "/icons/custom/rafuguard_Agent_Active_logo.svg");
+
+                console.log("agent is connected");
+
+                let agentButtons = $(".agent-depend");
+                agentButtons.addClass("active");
+                agentButtons.attr("aria-pressed", "true");
+    }
+
   });
 
   // Handle any errors that occur.

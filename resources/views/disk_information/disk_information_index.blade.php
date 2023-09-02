@@ -376,10 +376,43 @@
   margin: 0px;
   margin-bottom: 3px;
 }
+
+.card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .disk-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .temperature {
+      font-size: 2rem;
+      color: #ff6b6b;
+    }
    
     </style>
 
-
+<div class="container mt-2 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="disk-name">Disk 1</div>
+        <div class="temperature">42°C</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="disk-name">Disk 2</div>
+        <div class="temperature">38°C</div>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</div>
 
   <div class="row row-cols-md-2 g-4 mb-4" id="driveContainer">
     <!-- Drive cards will be added here using jQuery -->
