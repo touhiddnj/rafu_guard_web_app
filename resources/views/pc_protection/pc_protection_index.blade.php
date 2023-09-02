@@ -534,7 +534,10 @@
 @section('customScript')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script>
+
+var lastLog = "";
     // webpage.js
 
 // Define the JavaScript variable you want to access
@@ -584,7 +587,211 @@ window.addEventListener('message', event => {
         chart.render();
 
 
+
+const socketURL = 'ws://127.0.0.1:8090';
+let socket = null;
+let reconnectInterval = 1000; // Reconnect every 1 second
+let isConnected = false;
+
+function connectWebSocket() {
+  socket = new WebSocket(socketURL);
+
+  socket.addEventListener('open', (event) => {
+    isConnected = true;
+    console.log('Connected to the WebSocket server');
+  });
+
+  socket.addEventListener('message', (event) => {
+    const response =  JSON.parse( event.data);
+    if (response.cmd == "last-scan-time-response") {
+    console.log("detection logs: ", response.totalCount);
+    let selector = document.getElementById("last-scan-time");
+    selector.innerText = timeDifferenceWithUnit(response.totalCount);
+  }
+
+  if (response.cmd === "agent-check-result") {
+    console.log("agent check result received");
+   
+    let selector = document.getElementById("protection-message");
+    let selector2 = document.getElementById("protection-status");
+    if (response.success == true) {
+      selector.style.color = "#006700";
+      selector2.style.color = "#006700";
+      selector.innerText = "Protection is ON";
+      selector2.innerText = "Yes";
+    } else {
+      selector.style.color = "red";
+      selector2.style.color = "red";
+      selector.innerText = "Protection is OFF !";
+      selector2.innerText = "No";
+    }
+  }
+
+  if (response.cmd == "currently-scanning-response") {
+    console.log("currently scanning: ", response.totalCount);
+    let selector = document.getElementById("current-scan-info");
+    let currentScanInfo = JSON.parse(response.totalCount);
+    selector.innerHTML = `<strong style="color: #4A2B8C">Scanning:</strong><br />
+    ${currentScanInfo.FilePath}`;
+  }
+
+  if (response.cmd == "detection-log-response") {
+    if (response.totalCount === lastLog) {
+      return;
+    }
+    console.log("detection logs: ", response.totalCount);
+    let logList = JSON.parse(response.totalCount);
+    // Loop through the data and create rows
+    let tableBody = document.querySelector("#detection-log tbody");
+    tableBody.innerHTML = "";
+    logList.forEach((item) => {
+      // Create a new row and cells
+      let row = document.createElement("tr");
+      let cellTimeAdded = document.createElement("td");
+      let cellVariantName = document.createElement("td");
+      let cellFileName = document.createElement("td");
+      let cellAction = document.createElement("td");
+      let cellFilePath = document.createElement("td");
+      let cellStatus = document.createElement("td");
+      cellTimeAdded.textContent = formatShortDateAndTime(item.TimeAdded);
+      let time = formatShortDateAndTime(item.TimeAdded);
+      // Fill the cells with data
+      cellVariantName.innerHTML = `<div></div><img style="max-width: 30px; padding-top: 13px;" src="/icons/custom/rafuguard_virus_100.svg"> <strong>${item.VariantName}</strong></div><div style="margin-top: -13px; padding-left: 33px;"><span style="color: #404B57;font-size: 12px;">${time}</span></div>`;
+      // cellVariantName.textContent = item.VariantName;
+      cellVariantName.style.minWidth = "250px";
+      // cellVariantName.style.border = "1px solid red";
+
+      // Assuming you want just the file name and not the whole path
+      cellFileName.textContent = item.FilePath.split("\\").pop();
+
+      // Placeholder for action, assuming you have some logic for this
+      cellAction.textContent = "Deleted"; // replace with the action you want
+
+      // cellFilePath.textContent = item.FilePath;
+
+      // Check if the file path is longer than 50 characters
+      if (item.FilePath.length > 30) {
+        cellFilePath.textContent = item.FilePath.substr(0, 30) + "..."; // Trim to 50 chars and add '...'
+        cellFilePath.title = item.FilePath; // Add the full path as a title
+      } else {
+        cellFilePath.textContent = item.FilePath;
+      }
+
+      cellStatus.textContent = item.Status; // assuming status is direct value, you might want to map it to some text
+
+      // Append cells to row
+      // row.appendChild(cellTimeAdded);
+      row.appendChild(cellVariantName);
+      row.appendChild(cellFileName);
+      row.appendChild(cellAction);
+      row.appendChild(cellFilePath);
+      // row.appendChild("");
+
+      // Append row to table body
+      tableBody.appendChild(row);
+    });
+    /* 
+    let table = document.getElementById("detection-log");
+    table.style.display = "none";
+    setTimeout(() => {
+      table.style.display = "";
+    }, 0); */
+    lastLog = response.totalCount;
+  }
+
+
+
+
+    // console.log('Received message:', message);
+  });
+
+  socket.addEventListener('error', (event) => {
+    console.error('WebSocket error:', event);
+    reconnect();
+  });
+
+  socket.addEventListener('close', (event) => {
+    if (isConnected) {
+      console.log('WebSocket connection closed:', event);
+      reconnect();
+    }
+  });
+}
+
+function reconnect() {
+  if (!isConnected) {
+    console.log('Attempting to reconnect...');
+    setTimeout(connectWebSocket, reconnectInterval);
+  }
+}
+
+connectWebSocket(); // Initial connection
+
+// You can also provide a way to manually disconnect the socket
+function disconnectWebSocket() {
+  if (socket) {
+    socket.close();
+    isConnected = false;
+    console.log('WebSocket disconnected.');
+  }
+}
+
+setInterval(() => {
+  socket.send(JSON.stringify({cmd: 'last-scan-time'}));
+  socket.send(JSON.stringify({cmd: 'agent-check'}));
+  socket.send(JSON.stringify({cmd: 'currently-scanning'}));
+  socket.send(JSON.stringify({cmd: 'detection-log'}));
+}, 500);
+
         
-      
+
+
+
+/* Helper Functions*/
+    
+function timeDifferenceWithUnit(dateString) {
+  const givenDate = moment(dateString, "MM/DD/YYYY h:mm:ss A");
+  const now = moment();
+
+  const years = now.diff(givenDate, "years");
+  if (years > 0) return `${years} years ago`;
+
+  const months = now.diff(givenDate, "months");
+  if (months > 0) return `${months} months ago`;
+
+  const weeks = now.diff(givenDate, "weeks");
+  if (weeks > 0) return `${weeks} weeks ago`;
+
+  const days = now.diff(givenDate, "days");
+  if (days > 0) return `${days} days ago`;
+
+  const hours = now.diff(givenDate, "hours");
+  if (hours > 0) return `${hours} hours ago`;
+
+  const minutes = now.diff(givenDate, "minutes");
+  if (minutes > 0) return `${minutes} minutes ago`;
+
+  const seconds = now.diff(givenDate, "seconds");
+  return `${seconds} seconds ago`;
+}
+
+function formatShortDateAndTime(timestamp) {
+  const date = new Date(timestamp);
+
+  const options = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    // timeZoneName: "short",
+  };
+
+  const formattedDate = date.toLocaleString("en-US", options);
+  return formattedDate;
+}
+
+  
 </script>
 @endsection

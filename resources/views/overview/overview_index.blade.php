@@ -1805,7 +1805,7 @@ function agentConnector() {
       let status = document.getElementById("agent-status");
                 let img = document.getElementById("agent-status-img");
                 // let version = agentVersion.split(".").slice(0, 2).join(".");
-                let version = response.totalCount;
+                let version = response.totalCount.slice(0, -2);
                 status.style.color = "#006700";
                 status.textContent = "Agent is connected: " + version;
                 img.setAttribute("src", "/icons/custom/rafuguard_Agent_Active_logo.svg");
