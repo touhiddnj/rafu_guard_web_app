@@ -377,26 +377,27 @@
   margin-bottom: 3px;
 }
 
-.card {
+.disk-info .card {
       border: none;
       border-radius: 10px;
       box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
       text-align: center;
     }
-    .disk-name {
+   .disk-info .disk-name {
       font-size: 1.2rem;
       font-weight: bold;
       margin-bottom: 10px;
     }
-    .temperature {
+    .disk-info .temperature {
       font-size: 2rem;
-      color: #ff6b6b;
+      /* color: #ff6b6b; */
+      color: #363636;
     }
    
     </style>
 
-<div class="container mt-2 mb-5">
+{{-- <div class="disk-info container mt-2 mb-5">
   <div class="row justify-content-center">
     <div class="col-md-4">
       <div class="card">
@@ -412,6 +413,18 @@
     </div>
     <!-- Add more cards as needed -->
   </div>
+</div> --}}
+
+<div class="disk-info container mt-2 mb-5">
+    <!-- Heading -->
+    <div class="row">
+      <div class="col text-center">
+        <h2>Storage Devices</h2>
+      </div>
+    </div>
+  <div class="row justify-content-center" id="diskContainer">
+    <!-- Cards will be appended here -->
+  </div>
 </div>
 
   <div class="row row-cols-md-2 g-4 mb-4" id="driveContainer">
@@ -424,13 +437,30 @@
 @section('customScript')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script>
-
+var socket = new WebSocket("ws://127.0.0.1:8090/");
 agentConnector();
-  
+
+setInterval(() => {
+
+
+const cmd2 = { cmd: 'hdd-temp'};
+
+// Send a message to the server once connected
+socket.send(JSON.stringify(cmd2));
+
+}, 2000);
+
+setInterval(()=>{
+  const cmd = { cmd: 'drive-info'};
+
+// Send a message to the server once connected
+socket.send(JSON.stringify(cmd));
+}, 30000);
+
 function agentConnector() {
   const driveContainer = document.getElementById("driveContainer");
   // Create a WebSocket connection
-  const socket = new WebSocket("ws://127.0.0.1:8090/");
+
 
   // Connection opened
   socket.addEventListener("open", (event) => {
@@ -440,16 +470,62 @@ function agentConnector() {
 
     // Send a message to the server once connected
     socket.send(JSON.stringify(cmd));
+
+    const cmd2 = { cmd: 'hdd-temp'};
+
+// Send a message to the server once connected
+socket.send(JSON.stringify(cmd2));
+
+
   });
 
   // Listen for messages from the server
   socket.addEventListener("message", (event) => {
     console.log("Message from server:", event.data);
+    const response = JSON.parse(event.data);
 
-    const diskData = JSON.parse(event.data);
-    const driveData = diskData.driveData;
+    if(response.cmd == "hdd-temp-response"){
+
+      const hardwareInfo = JSON.parse(response.totalCount);
+
+      const diskContainer = document.getElementById('diskContainer');
+      diskContainer.innerHTML = "";
+// Loop through the JSON data and create the cards
+hardwareInfo.forEach((item, index) => {
+  // Create the necessary elements
+  const col = document.createElement('div');
+  col.className = 'col-md-4';
+
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const diskName = document.createElement('div');
+  diskName.className = 'disk-name';
+  // diskName.textContent = 'Disk ' + (index + 1);
+  diskName.textContent = `${item.hwType}: ${item.hwName}`;
+
+  const temperature = document.createElement('div');
+  temperature.className = 'temperature';
+  temperature.textContent = item.sensorValue + '°C';
+  temperature.title = "Temperature";
+
+  // Append the created elements to their respective containers
+  card.appendChild(diskName);
+  card.appendChild(temperature);
+  col.appendChild(card);
+  diskContainer.appendChild(col);
+
+});
+
+    }
+
+
+    if(response.cmd == "drive-info-response"){
+
+      const driveData = response.driveData;
     console.log(driveData);
 
+    driveContainer.innerHTML = "";
     driveData.forEach(drive => {
       const totalSizeGB = convertToGB(drive.TotalSize);
   const usedSpaceGB = convertToGB(drive.UsedSpace);
@@ -492,10 +568,13 @@ function agentConnector() {
  </div>
 </div>`;
 
+
 const cardDiv = document.createElement('div');
       cardDiv.classList.add('col-md-6', 'mb-3');
       cardDiv.innerHTML = cardHTML;
 driveContainer.appendChild(cardDiv);
+
+
 
  // Create ApexCharts for each card
  const chartOptions = {
@@ -504,6 +583,14 @@ driveContainer.appendChild(cardDiv);
         },
         series: [Number(usedSpacePercentage.toFixed(2)), Number(freeSpacePercentage.toFixed(2))],
         labels: ['Used Space','Free Space'],
+        tooltip: {
+    theme: 'dark', // Use the 'dark' theme for the tooltip
+    style: {
+      fontSize: '14px',
+      background: '#2ECC71', // Set the tooltip background color
+      color: '#000000', // Set the tooltip font color
+    },
+  },
       };
 
       const chartId = `chart-${drive.Name.replace(/\\|:/g, '-')}`;
@@ -511,6 +598,9 @@ driveContainer.appendChild(cardDiv);
       chart.render();
       
     });
+    }
+
+
 
   });
 
