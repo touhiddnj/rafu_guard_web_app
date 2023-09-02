@@ -34,7 +34,9 @@ class GoogleController extends Controller
                     'email' => $user->email,
                     'gauth_id' => $user->id,
                     'gauth_type' => 'google',
-                    'password' => encrypt(uniqid())
+                    'password' => encrypt(uniqid()),
+                    'avatar' =>  $user->avatar,
+                    'avatar_original' => $user->attributes->avatar_original,
                 ]);
 
                 Auth::login($newUser);
