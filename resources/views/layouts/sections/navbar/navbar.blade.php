@@ -2,6 +2,7 @@
 $containerNav = $containerNav ?? 'container-fluid';
 $navbarDetached = ($navbarDetached ?? '');
 
+dd(Auth::user());
 @endphp
 <style>
   .app-brand-text.demo{
