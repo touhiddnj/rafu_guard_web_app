@@ -715,6 +715,24 @@
               </div>
             </div>
           </li>
+
+                   <li class="d-flex mb-4 pb-1">
+            <div class="avatar flex-shrink-0 me-3">
+              <span class="avatar-initial rounded bg-label-danger">
+                {{-- <i class='bx bx-bug'></i> --}}
+                <img src="/icons/custom/rafuguard_ok.svg">
+              </span>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <h6 class="mb-0">Other</h6>
+                <small class="text-muted">Files consider as safe</small>
+              </div>
+              <div class="user-progress">
+                <small id="other-files" class="fw-semibold">---</small>
+              </div>
+            </div>
+          </li>
 {{--           <li class="d-flex">
             <div class="avatar flex-shrink-0 me-3">
               <span class="avatar-initial rounded bg-label-secondary"><i class='bx bx-football'></i></span>
@@ -1782,11 +1800,125 @@ function checkWebSocketConnection(wsURL, timeout = 5000) {
     });
 }
 
+
+const WebSocketReconnect = (url) => {
+  let ws = null;
+  let reconnectInterval = 1000; // 1 second
+  let maxReconnectInterval = 30000; // 30 seconds
+  let reconnectTimeout = null;
+
+  const connect = () => {
+    ws = new WebSocket(url);
+
+    ws.onopen = () => {
+      console.log("WebSocket connection established");
+      clearTimeout(reconnectTimeout);
+    };
+
+    ws.onclose = (event) => {
+      console.log(`WebSocket connection closed with code: ${event.code}`);
+      if (!event.wasClean) {
+        reconnect();
+      }
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    ws.onmessage = (event) => {
+      handleMessage(event);
+      // console.log("Received message:", event.data);
+      // Handle the received message
+      
+    };
+  };
+
+  const reconnect = () => {
+    const nextInterval = Math.min(reconnectInterval * 2, maxReconnectInterval);
+    console.log(`Reconnecting in ${nextInterval / 1000} seconds...`);
+    reconnectTimeout = setTimeout(() => {
+      connect();
+    }, nextInterval);
+  };
+
+  connect(); // Initial connection
+
+  return {
+    send: (data) => {
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(data);
+      } else {
+        console.error("WebSocket is not open. Message not sent.");
+      }
+    },
+
+    close: () => {
+      if (ws) {
+        clearTimeout(reconnectTimeout);
+        ws.close();
+      }
+    },
+  };
+};
+
+// Usage
+const socket = WebSocketReconnect("ws://127.0.0.1:8090/");
+
+setInterval(function(){
+// Sending data
+socket.send(JSON.stringify({cmd: 'get-version'}));
+socket.send(JSON.stringify({cmd: 'total-file-count'}));
+},3000);
+
+
+// Closing the socket
+// socket.close();
+
+function handleMessage(event){
+  const response = JSON.parse(event.data);
+    if(response.cmd == 'get-version-response'){
+      let status = document.getElementById("agent-status");
+                let img = document.getElementById("agent-status-img");
+                // let version = agentVersion.split(".").slice(0, 2).join(".");
+                let version = response.totalCount.slice(0, -2);
+                status.style.color = "#006700";
+                status.textContent = "Agent is connected: " + version;
+                img.setAttribute("src", "/icons/custom/rafuguard_Agent_Active_logo.svg");
+
+                console.log("agent is connected");
+
+                let agentButtons = $(".agent-depend");
+                agentButtons.addClass("active");
+                agentButtons.attr("aria-pressed", "true");
+    }
+
+    if(response.cmd == "total-file-count-response"){
+        console.log(response);
+
+        const statistics = JSON.parse(response.totalCount);
+        const totalFileSelector = document.getElementById("total-file-count");
+        const totalAppsSelector = document.getElementById("total-app-count");
+        const totalPhishySelector = document.getElementById("total-phishy");
+        const totalMaliciousSelector = document.getElementById("total-malicious");
+        const otherFileSelector = document.getElementById("other-files");
+        const otherFiles = Number(statistics.total_files) - ( Number(statistics.total_apps) + Number(statistics.total_phishy) + Number(statistics.total_malicious) ) ;
+        totalFileSelector.textContent = statistics.total_files;
+        totalAppsSelector.textContent = statistics.total_apps;
+        totalPhishySelector.textContent = statistics.total_phishy;
+        totalMaliciousSelector.textContent = statistics.total_malicious;
+        otherFileSelector.textContent = otherFiles;
+    }
+}
+
+
+/* 
+let socket = null; // Declare the socket variable outside the function
 agentConnector();
 
 function agentConnector() {
   // Create a WebSocket connection
-  const socket = new WebSocket("ws://127.0.0.1:8090/");
+   socket = new WebSocket("ws://127.0.0.1:8090/");
 
   // Connection opened
   socket.addEventListener("open", (event) => {
@@ -1795,11 +1927,12 @@ function agentConnector() {
     // Send a message to the server once connected
     socket.send("Hello Server!");
     socket.send(JSON.stringify({cmd: 'get-version'}));
+    socket.send(JSON.stringify({cmd: 'total-file-count'}));
   });
 
   // Listen for messages from the server
   socket.addEventListener("message", (event) => {
-    console.log("Message from server:", event.data);
+   // console.log("Message from server:", event.data);
     const response = JSON.parse(event.data);
     if(response.cmd == 'get-version-response'){
       let status = document.getElementById("agent-status");
@@ -1815,6 +1948,23 @@ function agentConnector() {
                 let agentButtons = $(".agent-depend");
                 agentButtons.addClass("active");
                 agentButtons.attr("aria-pressed", "true");
+    }
+
+    if(response.cmd == "total-file-count-response"){
+        console.log(response);
+
+        const statistics = JSON.parse(response.totalCount);
+        const totalFileSelector = document.getElementById("total-file-count");
+        const totalAppsSelector = document.getElementById("total-app-count");
+        const totalPhishySelector = document.getElementById("total-phishy");
+        const totalMaliciousSelector = document.getElementById("total-malicious");
+        const otherFileSelector = document.getElementById("other-files");
+        const otherFiles = Number(statistics.total_files) - ( Number(statistics.total_apps) + Number(statistics.total_phishy) + Number(statistics.total_malicious) ) ;
+        totalFileSelector.textContent = statistics.total_files;
+        totalAppsSelector.textContent = statistics.total_apps;
+        totalPhishySelector.textContent = statistics.total_phishy;
+        totalMaliciousSelector.textContent = statistics.total_malicious;
+        otherFileSelector.textContent = otherFiles;
     }
 
   });
@@ -1837,7 +1987,7 @@ function agentConnector() {
   // socket.close();
 }
 
-
+ */
 
 </script>
 @endsection
