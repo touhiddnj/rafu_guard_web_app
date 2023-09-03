@@ -1908,6 +1908,42 @@ function handleMessage(event){
         totalPhishySelector.textContent = statistics.total_phishy;
         totalMaliciousSelector.textContent = statistics.total_malicious;
         otherFileSelector.textContent = otherFiles;
+
+
+  /*   let applicationPercentage = (application / total) * 100;
+  let phishyPercentage = (phishy / total) * 100;
+  let maliciousPercentage = (malicious / total) * 100;
+  let otherPercentage = (other / total) * 100; */
+
+  let applicationPercentage = parseFloat(
+    ((statistics.total_apps / statistics.total_files) * 100).toFixed(2)
+  );
+  let phishyPercentage = parseFloat(((statistics.total_phishy / statistics.total_files) * 100).toFixed(2));
+  let maliciousPercentage = parseFloat(((statistics.total_malicious / statistics.total_files) * 100).toFixed(2));
+  let otherPercentage = parseFloat(((otherFiles / statistics.total_files) * 100).toFixed(2));
+
+  let series = [
+    applicationPercentage,
+    phishyPercentage,
+    maliciousPercentage,
+    otherPercentage,
+  ];
+
+  console.log("series: ", series);
+  lastResponse = new Date();
+        extStatusSelector.style.color = '#006700';
+        extStatusSelector.textContent = "Extension Active";
+          console.log('Received data:', event.detail);
+          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
+      fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
+        return series[3];
+      };
+
+      statisticsChart2.updateOptions(fileChartConfig);
+          statisticsChart2.updateSeries(series);
+
+
+
     }
 }
 

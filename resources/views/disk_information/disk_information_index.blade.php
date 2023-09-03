@@ -539,6 +539,15 @@ hardwareInfo.forEach((item, index) => {
   console.log(usedSpaceGB);
   console.log(freeSpaceGB);
 
+  let progressClass = "bg-success";
+
+if (usedSpacePercentage >= 90) {
+  progressClass = "bg-danger";
+} else if (usedSpacePercentage >= 70) {
+  progressClass = "bg-warning";
+}
+
+
       const cardHTML = `<div class="card">
  
 
@@ -561,7 +570,7 @@ hardwareInfo.forEach((item, index) => {
 </div>
   
    <div class="progress">
-     <div class="progress-bar bg-warning" role="progressbar" style="width: ${Number(usedSpacePercentage.toFixed(2))}%;" aria-valuenow="${Number(usedSpacePercentage.toFixed(2))}" aria-valuemin="0" aria-valuemax="100">
+     <div class="progress-bar ${progressClass}" role="progressbar" style="width: ${Number(usedSpacePercentage.toFixed(2))}%;" aria-valuenow="${Number(usedSpacePercentage.toFixed(2))}" aria-valuemin="0" aria-valuemax="100">
        ${Number(usedSpacePercentage.toFixed(2))}%
      </div>
    </div>
