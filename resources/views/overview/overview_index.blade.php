@@ -1708,13 +1708,13 @@ $(document).ready(function(){
         extStatusSelector.style.color = '#006700';
         extStatusSelector.textContent = "Extension Active";
           console.log('Received data:', event.detail);
-          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
+ /*          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
       fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
         return event.detail.fileStatSeries[3];
       };
 
       statisticsChart2.updateOptions(fileChartConfig);
-          statisticsChart2.updateSeries(event.detail.fileStatSeries);
+          statisticsChart2.updateSeries(event.detail.fileStatSeries); */
 
 
 
