@@ -82,7 +82,8 @@
         <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">
           <i class="fa-solid fa-lock"></i> Login
         </h1>
-        <form class="space-y-4 md:space-y-6" action="#">
+        <form class="space-y-4 md:space-y-6" action="{{ route('login') }}" method="post">
+          @csrf
           <div>
             <label for="email" class="block mb-2 text-sm font-medium">Your email</label>
 
@@ -95,7 +96,7 @@
           <div class="flex items-center justify-between">
             <div class="flex items-start">
               <div class="flex items-center h-5">
-                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required="" />
+                <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"  />
               </div>
               <div class="ml-3 text-sm">
                 <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
@@ -105,13 +106,13 @@
           </div>
 
           <div class="grid grid-cols-1 gap-4">
-            <a class="anim-btn block w-full group" href="#">
+            <button type="submit" class="anim-btn block w-full group" >
               <span></span>
               <span></span>
               <span></span>
               <span></span> <i class="fa-brands fa-google"></i>
               Login
-            </a>
+            </button>
 
             <a class="anim-btn block w-full group" href="{{ url('auth/google') }}">
               <span></span>
