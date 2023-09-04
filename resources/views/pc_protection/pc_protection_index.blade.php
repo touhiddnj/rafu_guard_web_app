@@ -485,8 +485,7 @@
             <div class="col-md-12 ">
               <div id="current-scan-info" class="m-2">
           
-  <strong style="color: #4A2B8C">Scanning:</strong><br/> C:\Windows\WinSxS\amd64_dual_wvmbusr.inf_31bf3856ad364e35_10.0.22621.1702_none_d2b715197bad6fc2\vmbusr.sys
-  <br />
+  <strong style="color: #4A2B8C">Scanning:</strong><br/> ---  <br />
   Result: Clean         
                 
               </div>

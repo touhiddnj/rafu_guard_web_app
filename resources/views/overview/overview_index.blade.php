@@ -465,7 +465,7 @@
               <h3 class="card-title mb-2  fs-5">Shielding from latest phishing technique</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm text-right ext-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
@@ -534,7 +534,7 @@
               <h3 class="card-title mb-2  fs-5">ScamShield: Strong Anti-Fraud Protection</h3>
             </div>
             <div style="flex: 20%;">
-              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm active text-right" data-toggle="button" aria-pressed="true" autocomplete="off">
+              <button style=" float: right; " type="button" class="btn btn-toggle btn-sm text-right ext-depend" data-toggle="button" aria-pressed="false" autocomplete="off">
                 <div class="handle"></div>
               </button>
             </div>
@@ -1376,254 +1376,7 @@ var chartLine = new ApexCharts(
 );
 chartLine.render();
 
-var optionsCircle = {
-  chart: {
-    type: "radialBar",
-    height: 250,
-    offsetX: 0
-  },
-  plotOptions: {
-    radialBar: {
-      inverseOrder: false,
-      hollow: {
-        margin: 5,
-        size: "48%",
-        background: "transparent"
-      },
-      track: {
-        show: true,
-        background: "#40475D",
-        strokeWidth: "10%",
-        opacity: 1,
-        margin: 3 // margin is in pixels
-      }
-    }
-  },
-  series: [71, 63],
-  labels: ["Device 1", "Device 2"],
-  legend: {
-    show: true,
-    position: "left",
-    offsetX: -30,
-    offsetY: -10,
-    formatter: function (val, opts) {
-      return val + " - " + opts.w.globals.series[opts.seriesIndex] + "%";
-    }
-  },
-  fill: {
-    type: "gradient",
-    gradient: {
-      shade: "light",
-      type: "horizontal",
-      shadeIntensity: 0.5,
-      inverseColors: true,
-      opacityFrom: 1,
-      opacityTo: 1,
-      stops: [0, 100]
-    }
-  }
-};
 
-var chartCircle = new ApexCharts(
-  document.querySelector("#circlechart"),
-  optionsCircle
-);
-chartCircle.render();
-
-var optionsProgress1 = {
-  chart: {
-    height: 70,
-    type: "bar",
-    stacked: true,
-    sparkline: {
-      enabled: true
-    }
-  },
-  plotOptions: {
-    bar: {
-      horizontal: true,
-      barHeight: "20%",
-      colors: {
-        backgroundBarColors: ["#40475D"]
-      }
-    }
-  },
-  stroke: {
-    width: 0
-  },
-  series: [
-    {
-      name: "Process 1",
-      data: [44]
-    }
-  ],
-  title: {
-    floating: true,
-    offsetX: -10,
-    offsetY: 5,
-    text: "Process 1"
-  },
-  subtitle: {
-    floating: true,
-    align: "right",
-    offsetY: 0,
-    text: "44%",
-    style: {
-      fontSize: "20px"
-    }
-  },
-  tooltip: {
-    enabled: false
-  },
-  xaxis: {
-    categories: ["Process 1"]
-  },
-  yaxis: {
-    max: 100
-  },
-  fill: {
-    opacity: 1
-  }
-};
-
-var chartProgress1 = new ApexCharts(
-  document.querySelector("#progress1"),
-  optionsProgress1
-);
-chartProgress1.render();
-
-var optionsProgress2 = {
-  chart: {
-    height: 70,
-    type: "bar",
-    stacked: true,
-    sparkline: {
-      enabled: true
-    }
-  },
-  plotOptions: {
-    bar: {
-      horizontal: true,
-      barHeight: "20%",
-      colors: {
-        backgroundBarColors: ["#40475D"]
-      }
-    }
-  },
-  colors: ["#17ead9"],
-  stroke: {
-    width: 0
-  },
-  series: [
-    {
-      name: "Process 2",
-      data: [80]
-    }
-  ],
-  title: {
-    floating: true,
-    offsetX: -10,
-    offsetY: 5,
-    text: "Process 2"
-  },
-  subtitle: {
-    floating: true,
-    align: "right",
-    offsetY: 0,
-    text: "80%",
-    style: {
-      fontSize: "20px"
-    }
-  },
-  tooltip: {
-    enabled: false
-  },
-  xaxis: {
-    categories: ["Process 2"]
-  },
-  yaxis: {
-    max: 100
-  },
-  fill: {
-    type: "gradient",
-    gradient: {
-      inverseColors: false,
-      gradientToColors: ["#6078ea"]
-    }
-  }
-};
-
-var chartProgress2 = new ApexCharts(
-  document.querySelector("#progress2"),
-  optionsProgress2
-);
-chartProgress2.render();
-
-var optionsProgress3 = {
-  chart: {
-    height: 70,
-    type: "bar",
-    stacked: true,
-    sparkline: {
-      enabled: true
-    }
-  },
-  plotOptions: {
-    bar: {
-      horizontal: true,
-      barHeight: "20%",
-      colors: {
-        backgroundBarColors: ["#40475D"]
-      }
-    }
-  },
-  colors: ["#f02fc2"],
-  stroke: {
-    width: 0
-  },
-  series: [
-    {
-      name: "Process 3",
-      data: [74]
-    }
-  ],
-  fill: {
-    type: "gradient",
-    gradient: {
-      gradientToColors: ["#6094ea"]
-    }
-  },
-  title: {
-    floating: true,
-    offsetX: -10,
-    offsetY: 5,
-    text: "Process 3"
-  },
-  subtitle: {
-    floating: true,
-    align: "right",
-    offsetY: 0,
-    text: "74%",
-    style: {
-      fontSize: "20px"
-    }
-  },
-  tooltip: {
-    enabled: false
-  },
-  xaxis: {
-    categories: ["Process 3"]
-  },
-  yaxis: {
-    max: 100
-  }
-};
-
-var chartProgress3 = new ApexCharts(
-  document.querySelector("#progress3"),
-  optionsProgress3
-);
-chartProgress3.render();
 
 window.setInterval(function () {
   iteration++;
@@ -1637,49 +1390,9 @@ window.setInterval(function () {
     }
   ]);
 
-  chartLine.updateSeries([
-    {
-      data: [
-        ...chartLine.w.config.series[0].data,
-        [chartLine.w.globals.maxX + 300000, getRandom()]
-      ]
-    },
-    {
-      data: [
-        ...chartLine.w.config.series[1].data,
-        [chartLine.w.globals.maxX + 300000, getRandom()]
-      ]
-    }
-  ]);
 
-  chartCircle.updateSeries([
-    getRangeRandom({ min: 10, max: 100 }),
-    getRangeRandom({ min: 10, max: 100 })
-  ]);
 
-  var p1Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress1.updateOptions({
-    series: [
-      {
-        data: [p1Data]
-      }
-    ],
-    subtitle: {
-      text: p1Data + "%"
-    }
-  });
 
-  var p2Data = getRangeRandom({ min: 10, max: 100 });
-  chartProgress2.updateOptions({
-    series: [
-      {
-        data: [p2Data]
-      }
-    ],
-    subtitle: {
-      text: p2Data + "%"
-    }
-  });
 
   var p3Data = getRangeRandom({ min: 10, max: 100 });
   chartProgress3.updateOptions({
@@ -1708,6 +1421,10 @@ $(document).ready(function(){
         extStatusSelector.style.color = '#006700';
         extStatusSelector.textContent = "Extension Active";
           console.log('Received data:', event.detail);
+
+          let agentButtons = $(".ext-depend");
+                agentButtons.addClass("active");
+                agentButtons.attr("aria-pressed", "true");
  /*          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
       fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
         return event.detail.fileStatSeries[3];
@@ -1739,6 +1456,9 @@ setInterval(function(){
           if(isOlderByTenSeconds(lastResponse, currentTime)){
             extStatusSelector.style.color = '#ff0000';
                   extStatusSelector.textContent = "Extension not found!";
+                  let extButtons = $(".ext-depend");
+                  extButtons.removeClass("active");
+                  extButtons.attr("aria-pressed", "false");
           }
 
           // Usage example:
