@@ -130,7 +130,8 @@
         <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">
           <i class="fa-solid fa-user"></i> Register
         </h1>
-        <form class="space-y-4 md:space-y-6" action="#">
+        <form class="space-y-4 md:space-y-6" action="{{ route('register') }}" method="POST">
+          @csrf
           <div>
             <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
 
@@ -153,14 +154,20 @@
             <input type="password" name="password" id="password" placeholder="••••••••" class="input" required="" />
           </div>
 
+          <div>
+            <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+            <input type="password" name="password_confirmation" id="password" placeholder="••••••••" class="input" required="" />
+          </div>
+
+
           <div class="grid grid-cols-1 gap-4">
-            <a class="anim-btn block w-full group" href="#">
+            <button type="submit" class="anim-btn block w-full group">
               <span></span>
               <span></span>
               <span></span>
               <span></span> <i class="fa-brands fa-google"></i>
               Register
-            </a>
+            </button>
 
             <a class="anim-btn block w-full group" href="{{ url('auth/google') }}">
               <span></span>
