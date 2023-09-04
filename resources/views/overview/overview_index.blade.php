@@ -1931,8 +1931,8 @@ function handleMessage(event){
 
   console.log("series: ", series);
   lastResponse = new Date();
-        extStatusSelector.style.color = '#006700';
-        extStatusSelector.textContent = "Extension Active";
+      //  extStatusSelector.style.color = '#006700';
+       // extStatusSelector.textContent = "Extension Active";
           console.log('Received data:', event.detail);
           fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
       fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
