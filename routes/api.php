@@ -25,5 +25,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/custom-blocking-add', [ExtensionController::class, 'customBlockingAdd']);
     Route::get('/extension');
     Route::post('/ext-log-activity', [ExtensionController::class, 'logActivity']);
+    Route::get('/ext-last-activity', [ExtensionController::class, 'getActivity']);
     // Add more routes here
 });

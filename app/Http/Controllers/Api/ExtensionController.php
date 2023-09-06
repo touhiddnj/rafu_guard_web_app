@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Response;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\CustomUrlBlock;
@@ -67,5 +68,29 @@ class ExtensionController extends Controller
         $user->save();
 
         return response()->json(['message' => 'User updated successfully'], 200);
+    }
+
+    public function getActivity()
+    {
+        $userId = auth()->id();
+
+        // Find the user by their ID
+        $user = User::find($userId);
+
+        // Get the current time using Carbon
+        $currentTime = Carbon::now();
+
+        // Assuming you have a 'datetime_column' in your table
+        $datetimeFromDatabase =  $user->ext_last_activity;
+
+        // Parse the datetime from the database as a Carbon instance
+        $datetimeFromDatabase = Carbon::parse($datetimeFromDatabase);
+
+        // Calculate the difference in seconds
+        $differenceInSeconds = $currentTime->diffInSeconds($datetimeFromDatabase);
+
+        // Return the result as a JSON response
+
+        return response()->json(['last_activity' => $differenceInSeconds], 200);
     }
 }
