@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
+use Response;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\CustomUrlBlock;
 use App\Http\Controllers\Controller;
-use Response;
 
 class ExtensionController extends Controller
 {
@@ -46,5 +47,25 @@ class ExtensionController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function logActivity(Request $request)
+    {
+        $userId = auth()->id();
+
+        // Find the user by their ID
+        $user = User::find($userId);
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        // Update the column value
+        $user->ext_last_activity = now(); // Replace 'column_name' and 'new_value' with your actual column and value
+
+        // Save the changes
+        $user->save();
+
+        return response()->json(['message' => 'User updated successfully'], 200);
     }
 }

@@ -1417,6 +1417,8 @@ $(document).ready(function(){
       agentButtons.attr("aria-pressed", "false");
   
       window.addEventListener('fromContentScript', function(event) {
+      console.log("from content script: ", event);
+      if(event.detail != "undefined"){
         lastResponse = new Date();
         extStatusSelector.style.color = '#006700';
         extStatusSelector.textContent = "Extension Active";
@@ -1425,6 +1427,16 @@ $(document).ready(function(){
           let agentButtons = $(".ext-depend");
                 agentButtons.addClass("active");
                 agentButtons.attr("aria-pressed", "true");
+      }else{
+        extStatusSelector.style.color = '#00ffff';
+        extStatusSelector.textContent = "Extension Inactive";
+          console.log('Received data:', event.detail);
+
+          let agentButtons = $(".ext-depend");
+                agentButtons.removeClass("active");
+                agentButtons.attr("aria-pressed", "false");
+      }
+
  /*          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
       fileChartConfig.plotOptions.pie.donut.labels.total.formatter = function(w) {
         return event.detail.fileStatSeries[3];
