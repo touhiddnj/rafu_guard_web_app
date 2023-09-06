@@ -1419,22 +1419,9 @@ $(document).ready(function(){
       window.addEventListener('fromContentScript', function(event) {
       console.log("from content script: ", event);
       if(event.detail != "undefined"){
-        lastResponse = new Date();
-        extStatusSelector.style.color = '#006700';
-        extStatusSelector.textContent = "Extension Active";
-          console.log('Received data:', event.detail);
 
-          let agentButtons = $(".ext-depend");
-                agentButtons.addClass("active");
-                agentButtons.attr("aria-pressed", "true");
       }else{
-        extStatusSelector.style.color = '#00ffff';
-        extStatusSelector.textContent = "Extension Inactive";
-          console.log('Received data:', event.detail);
 
-          let agentButtons = $(".ext-depend");
-                agentButtons.removeClass("active");
-                agentButtons.attr("aria-pressed", "false");
       }
 
  /*          fileChartConfig.plotOptions.pie.donut.labels.total.label = 'Other';
@@ -1778,6 +1765,26 @@ fetch(apiUrl, {
   })
   .then((data) => {
     console.log(data); // JSON response data
+
+    if(data.last_activity > 10){
+        lastResponse = new Date();
+        extStatusSelector.style.color = '#006700';
+        extStatusSelector.textContent = "Extension Active";
+          console.log('Received data:', event.detail);
+
+          let agentButtons = $(".ext-depend");
+                agentButtons.addClass("active");
+                agentButtons.attr("aria-pressed", "true");
+      }else{
+        extStatusSelector.style.color = '#00ffff';
+        extStatusSelector.textContent = "Extension Inactive";
+          console.log('Received data:', event.detail);
+
+          let agentButtons = $(".ext-depend");
+                agentButtons.removeClass("active");
+                agentButtons.attr("aria-pressed", "false");
+      }
+
   })
   .catch((error) => {
     console.error("Error:", error);
