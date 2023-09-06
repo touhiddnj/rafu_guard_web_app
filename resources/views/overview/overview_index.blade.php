@@ -1757,5 +1757,33 @@ function agentConnector() {
 
  */
 
+ setInterval(getActivity, 5000);
+
+ function getActivity(){
+  const apiUrl = "https://guard.rafusoft.com/api/ext-last-activity";
+const authToken = document.getElementById("api-token").value; // Replace with your actual authorization token
+
+fetch(apiUrl, {
+  method: "GET",
+  headers: {
+    "Authorization": `Bearer ${authToken}`,
+    "Content-Type": "application/json"
+  },
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data); // JSON response data
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+ }
+
 </script>
 @endsection
