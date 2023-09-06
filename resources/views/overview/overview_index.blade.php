@@ -1776,7 +1776,7 @@ fetch(apiUrl, {
                 agentButtons.addClass("active");
                 agentButtons.attr("aria-pressed", "true");
       }else{
-        extStatusSelector.style.color = '#00ffff';
+        extStatusSelector.style.color = '#ff0000';
         extStatusSelector.textContent = "Extension Inactive";
           console.log('Received data:', event.detail);
 
