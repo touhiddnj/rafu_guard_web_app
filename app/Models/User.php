@@ -27,7 +27,8 @@ class User extends Authenticatable
         'gauth_id',
         'gauth_type',
         'avatar',
-        'avatar_original'
+        'avatar_original',
+        'ext_last_activity'
     ];
 
     /**
