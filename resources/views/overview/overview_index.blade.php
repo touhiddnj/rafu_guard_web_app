@@ -1766,7 +1766,7 @@ fetch(apiUrl, {
   .then((data) => {
     console.log(data); // JSON response data
 
-    if(data.last_activity > 10){
+    if(data.last_activity >  10){ 
         lastResponse = new Date();
         extStatusSelector.style.color = '#006700';
         extStatusSelector.textContent = "Extension Active";
