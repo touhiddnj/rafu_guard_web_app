@@ -1770,7 +1770,7 @@ fetch(apiUrl, {
         lastResponse = new Date();
         extStatusSelector.style.color = '#006700';
         extStatusSelector.textContent = "Extension Active";
-          console.log('Received data:', event.detail);
+          //console.log('Received data:', event.detail);
 
           let agentButtons = $(".ext-depend");
                 agentButtons.addClass("active");
@@ -1778,7 +1778,7 @@ fetch(apiUrl, {
       }else{
         extStatusSelector.style.color = '#ff0000';
         extStatusSelector.textContent = "Extension Inactive";
-          console.log('Received data:', event.detail);
+        //  console.log('Received data:', event.detail);
 
           let agentButtons = $(".ext-depend");
                 agentButtons.removeClass("active");
